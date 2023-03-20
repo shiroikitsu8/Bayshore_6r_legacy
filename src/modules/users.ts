@@ -7,8 +7,8 @@ import { prisma } from "..";
 import * as wm from "../wmmt/wm.proto";
 
 // Import Util
-import * as scratch from "./terminal/scratch";
-import * as common from "./util/common";
+import * as scratch from "../util/scratch";
+import * as common from "../util/common";
 
 
 export default class UserModule extends Module {
@@ -19,6 +19,9 @@ export default class UserModule extends Module {
 
             // Get the request body for the load user request
 			let body = wm.wm.protobuf.LoadUserRequest.decode(req.body);
+
+			// Trim Mojibake (happens if user using release version of bngrw)
+			body.cardChipId = body.cardChipId.replace('��������0000', '');
 			
 			// Block blank card.ini data and vanilla TP blank card data
 			if(body.cardChipId.match(/7F5C9744F11111114326.*/) || body.cardChipId.match(/0000000000.*/))
@@ -26,7 +29,7 @@ export default class UserModule extends Module {
 				body.cardChipId = '';
 				body.accessCode = '';
 			}
-
+			
             // Get the user from the database
 			let user = await prisma.user.findFirst({
 				where: {
@@ -39,9 +42,6 @@ export default class UserModule extends Module {
 							state: true,
 							gtWing: true,
 							lastPlayedPlace: true
-						},
-						where:{
-							state: { toBeDeleted: false } // except deleted car
 						}
 					}
 				}
@@ -58,6 +58,10 @@ export default class UserModule extends Module {
 					cars: [],
 					spappState: wm.wm.protobuf.SmartphoneAppState.SPAPP_UNREGISTERED,
 					transferState: wm.wm.protobuf.TransferState.NOT_REGISTERED,
+					fullTunedCarTicket: false, // TODO: Maybe... idk
+					ghostVs_2Locked: false, // TODO: Maybe... idk
+					ghostVs_3Locked: false, // TODO: Maybe... idk
+					ghostHighwayLocked: false, // TODO: Maybe... idk
 				};
 
 				if (!body.cardChipId || !body.accessCode) 
@@ -74,30 +78,11 @@ export default class UserModule extends Module {
 				}
 
 				// Check if new card registration is allowed or not
-				let newCardsBanned = Config.getConfig().gameOptions.newCardsBanned || 0;
+				let newCardsBanned = Config.getConfig().gameOptions.newCardsBanned;
 
 				// New card registration is allowed
 				if (newCardsBanned === 0)
 				{
-					let checkUser = await prisma.user.findFirst({
-						where:{
-							chipId: body.cardChipId
-						}
-					});
-
-					if(checkUser)
-					{
-						msg.error = wm.wm.protobuf.ErrorCode.ERR_USER_LOCKED;
-
-						// Encode the response
-						let message = wm.wm.protobuf.LoadUserResponse.encode(msg);
-
-						// Send the response to the client
-						common.sendResponse(message, res);
-
-						return;
-					}
-
 					let user = await prisma.user.create({
 						data: {
 							chipId: body.cardChipId,
@@ -236,8 +221,8 @@ export default class UserModule extends Module {
 			if (user.carOrder.length > 0)
 			{
 				// Sort the player's car list using the car order property
-				user.cars = user.cars.sort(function(a, b)
-				{
+				user.cars = user.cars.sort(function(a, b){
+
 					// User, and both car IDs exist
 					if (user)
 					{
@@ -348,6 +333,22 @@ export default class UserModule extends Module {
 					}
 				})
 			}
+
+			// Check ghost trophy count if more than 50 or not
+			let ghostExpeditionLocked: boolean = true;
+			let checkRgTrophy = await prisma.car.findFirst({
+				where:{
+					userId: user.id,
+					rgTrophy:{
+						gte: 50 // greater than equal 50
+					}
+				}
+			})
+
+			if(checkRgTrophy)
+			{
+				ghostExpeditionLocked = false;
+			}
 			
 
             // Response data
@@ -388,7 +389,13 @@ export default class UserModule extends Module {
 				wasCreatedToday: false,
 
 				// Invite Friend Campaign Event
-				participatedInInviteFriendCampaign: false
+				participatedInInviteFriendCampaign: false,
+
+				// TODO: Make saving about this
+				ghostExpeditionLocked: ghostExpeditionLocked, // must more than 50 rgTrophy
+				ghostVs_2Locked: false,
+				ghostVs_3Locked: false,
+				ghostHighwayLocked: false,
 			}
 
 			
@@ -605,6 +612,9 @@ export default class UserModule extends Module {
 
 			// Get the request body for the create user request
 			let body = wm.wm.protobuf.CreateUserRequest.decode(req.body);
+
+			// Trim Mojibake (happens if user using release version of bngrw)
+			body.cardChipId = body.cardChipId.replace('��������0000', '');
 
 			// Get the user info via the card chip id
 			let user = await prisma.user.findFirst({

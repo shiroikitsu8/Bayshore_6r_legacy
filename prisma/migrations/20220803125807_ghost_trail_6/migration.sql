@@ -1,8 +1,0 @@
--- AlterTable
-ALTER TABLE "Car" ALTER COLUMN "stLoseBits" SET DEFAULT 0;
-
--- AlterTable
-ALTER TABLE "GhostTrail" ADD COLUMN     "tuneHandling" INTEGER NOT NULL DEFAULT 0,
-ADD COLUMN     "tunePower" INTEGER NOT NULL DEFAULT 0,
-ALTER COLUMN "playedAt" SET DEFAULT 0,
-ALTER COLUMN "crownBattle" SET DEFAULT false;

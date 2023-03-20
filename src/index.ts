@@ -1,18 +1,6 @@
 // Bayshore - a Wangan Midnight Maximum Tune 6 private server.
 // Made with love by Luna, and part of Project Asakura.
 
-import process from 'process';
-import * as dotenv from "dotenv";
-dotenv.config({path: __dirname + '/.env'});
-
-let tracing: any = {};
-
-if (process.env.OPENTELEMETRY_ENABLED === "true") {
-    console.log('Enabling OpenTelemetry-compatible tracing...');
-    tracing = require('./tracing');
-    tracing.startTracing();
-}
-
 import express, { Router } from 'express';
 import {PrismaClient} from '@prisma/client';
 import https, {globalAgent} from 'https';
@@ -22,9 +10,13 @@ import bodyParser from 'body-parser';
 import AllnetModule from './allnet';
 import MuchaModule from './mucha';
 import { Config } from './config';
+import process from 'process';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
-import * as common from './modules/util/common';
+import * as common from './util/common';
+
+import * as dotenv from "dotenv";
+dotenv.config({path: __dirname + '/.env'});
 
 globalAgent.options.keepAlive = true;
 
@@ -35,10 +27,9 @@ export const prisma = new PrismaClient();
 
 const appRouter = Router();
 
-const PORT_ALLNET = process.env.ALLNET_PORT !== undefined ? parseInt(process.env.ALLNET_PORT) : 80;
-const PORT_MUCHA = process.env.MUCHA_PORT !== undefined ? parseInt(process.env.MUCHA_PORT) : 10082;
-const PORT_BNGI = process.env.SERVICE_PORT !== undefined ? parseInt(process.env.SERVICE_PORT) : 9002;
-const PORT_API = process.env.API_PORT !== undefined ? parseInt(process.env.API_PORT) : 9003;
+const PORT_ALLNET = 80;
+const PORT_MUCHA = 10082;
+const PORT_BNGI = 9002;
 
 const app = express();
 const muchaApp = express();
@@ -62,29 +53,6 @@ if (useSentry) {
 
         tracesSampleRate: 0.5
     });
-}
-
-if (process.env.OPENTELEMETRY_ENABLED === "true") {
-    tracing.startHttpMetrics([
-        {
-            app,
-            options: {
-                appName: 'service'
-            }
-        },
-        {
-            app: muchaApp,
-            options: {
-                appName: 'mucha'
-            }
-        },
-        {
-            app: allnetApp,
-            options: {
-                appName: 'allnet'
-            }
-        }
-    ]);
 }
 
 // Get the current timestamp

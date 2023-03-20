@@ -1057,6 +1057,9 @@ export namespace wm {
 
             /** RegisterSystemInfoRequest errorLogs */
             errorLogs?: (wm.protobuf.RegisterSystemInfoRequest.IErrorLogEntry[]|null);
+
+            /** RegisterSystemInfoRequest pcbSerialSecond */
+            pcbSerialSecond?: (string|null);
         }
 
         /** Represents a RegisterSystemInfoRequest. */
@@ -1121,6 +1124,9 @@ export namespace wm {
 
             /** RegisterSystemInfoRequest errorLogs. */
             public errorLogs: wm.protobuf.RegisterSystemInfoRequest.IErrorLogEntry[];
+
+            /** RegisterSystemInfoRequest pcbSerialSecond. */
+            public pcbSerialSecond: string;
 
             /**
              * Creates a new RegisterSystemInfoRequest instance using the specified properties.
@@ -1341,6 +1347,12 @@ export namespace wm {
 
             /** RegisterSystemInfoResponse ghostSelectionMaxRedoWait */
             ghostSelectionMaxRedoWait: number;
+
+            /** RegisterSystemInfoResponse expeditionSchedule */
+            expeditionSchedule?: (wm.protobuf.IGhostExpeditionSchedule|null);
+
+            /** RegisterSystemInfoResponse expeditionEventWasHeld */
+            expeditionEventWasHeld?: (boolean|null);
         }
 
         /** Represents a RegisterSystemInfoResponse. */
@@ -1384,6 +1396,12 @@ export namespace wm {
 
             /** RegisterSystemInfoResponse ghostSelectionMaxRedoWait. */
             public ghostSelectionMaxRedoWait: number;
+
+            /** RegisterSystemInfoResponse expeditionSchedule. */
+            public expeditionSchedule?: (wm.protobuf.IGhostExpeditionSchedule|null);
+
+            /** RegisterSystemInfoResponse expeditionEventWasHeld. */
+            public expeditionEventWasHeld: boolean;
 
             /**
              * Creates a new RegisterSystemInfoResponse instance using the specified properties.
@@ -2310,6 +2328,9 @@ export namespace wm {
             /** LoadUserResponse unusedCarTickets */
             unusedCarTickets?: (wm.protobuf.IUserItem[]|null);
 
+            /** LoadUserResponse fullTunedCarTicket */
+            fullTunedCarTicket: boolean;
+
             /** LoadUserResponse tutorials */
             tutorials?: (boolean[]|null);
 
@@ -2342,6 +2363,27 @@ export namespace wm {
 
             /** LoadUserResponse participatedInInviteFriendCampaign */
             participatedInInviteFriendCampaign?: (boolean|null);
+
+            /** LoadUserResponse specialGiftCount */
+            specialGiftCount?: (number|null);
+
+            /** LoadUserResponse giftCompleteCount */
+            giftCompleteCount?: (number|null);
+
+            /** LoadUserResponse defaultSpecialGiftCount */
+            defaultSpecialGiftCount?: (number|null);
+
+            /** LoadUserResponse ghostExpeditionLocked */
+            ghostExpeditionLocked?: (boolean|null);
+
+            /** LoadUserResponse ghostVs_2Locked */
+            ghostVs_2Locked: boolean;
+
+            /** LoadUserResponse ghostVs_3Locked */
+            ghostVs_3Locked: boolean;
+
+            /** LoadUserResponse ghostHighwayLocked */
+            ghostHighwayLocked: boolean;
         }
 
         /** Represents a LoadUserResponse. */
@@ -2383,6 +2425,9 @@ export namespace wm {
             /** LoadUserResponse unusedCarTickets. */
             public unusedCarTickets: wm.protobuf.IUserItem[];
 
+            /** LoadUserResponse fullTunedCarTicket. */
+            public fullTunedCarTicket: boolean;
+
             /** LoadUserResponse tutorials. */
             public tutorials: boolean[];
 
@@ -2415,6 +2460,27 @@ export namespace wm {
 
             /** LoadUserResponse participatedInInviteFriendCampaign. */
             public participatedInInviteFriendCampaign: boolean;
+
+            /** LoadUserResponse specialGiftCount. */
+            public specialGiftCount: number;
+
+            /** LoadUserResponse giftCompleteCount. */
+            public giftCompleteCount: number;
+
+            /** LoadUserResponse defaultSpecialGiftCount. */
+            public defaultSpecialGiftCount: number;
+
+            /** LoadUserResponse ghostExpeditionLocked. */
+            public ghostExpeditionLocked: boolean;
+
+            /** LoadUserResponse ghostVs_2Locked. */
+            public ghostVs_2Locked: boolean;
+
+            /** LoadUserResponse ghostVs_3Locked. */
+            public ghostVs_3Locked: boolean;
+
+            /** LoadUserResponse ghostHighwayLocked. */
+            public ghostHighwayLocked: boolean;
 
             /**
              * Creates a new LoadUserResponse instance using the specified properties.
@@ -3107,6 +3173,9 @@ export namespace wm {
 
             /** LoadCarRequest eventModeSerial */
             eventModeSerial?: (string|null);
+
+            /** LoadCarRequest rentalMode */
+            rentalMode?: (boolean|null);
         }
 
         /** Represents a LoadCarRequest. */
@@ -3126,6 +3195,9 @@ export namespace wm {
 
             /** LoadCarRequest eventModeSerial. */
             public eventModeSerial: string;
+
+            /** LoadCarRequest rentalMode. */
+            public rentalMode: boolean;
 
             /**
              * Creates a new LoadCarRequest instance using the specified properties.
@@ -3274,6 +3346,12 @@ export namespace wm {
             /** LoadCarResponse rgScore */
             rgScore: number;
 
+            /** LoadCarResponse rgScoreVs_2 */
+            rgScoreVs_2: number;
+
+            /** LoadCarResponse rgExpeditionScore */
+            rgExpeditionScore?: (number|null);
+
             /** LoadCarResponse rgRegionMapScore */
             rgRegionMapScore?: (number[]|null);
 
@@ -3285,6 +3363,18 @@ export namespace wm {
 
             /** LoadCarResponse rgAcquireAllCrowns */
             rgAcquireAllCrowns: boolean;
+
+            /** LoadCarResponse rgHighwayClearCount */
+            rgHighwayClearCount: number;
+
+            /** LoadCarResponse rgHighwayPoint */
+            rgHighwayPoint: number;
+
+            /** LoadCarResponse rgHighwayStationClearBits */
+            rgHighwayStationClearBits: number;
+
+            /** LoadCarResponse rgHighwayPreviousDice */
+            rgHighwayPreviousDice: number;
 
             /** LoadCarResponse dressupLevel */
             dressupLevel: number;
@@ -3322,8 +3412,8 @@ export namespace wm {
             /** LoadCarResponse challengerReturnCount */
             challengerReturnCount?: (number|null);
 
-            /** LoadCarResponse numOfChallengers */
-            numOfChallengers?: (number|null);
+            /** LoadCarResponse numOfStampTargetCars */
+            numOfStampTargetCars?: (number|null);
 
             /** LoadCarResponse opponentGhost */
             opponentGhost?: (wm.protobuf.IGhostCar|null);
@@ -3355,14 +3445,14 @@ export namespace wm {
             /** LoadCarResponse announceEventModePrize */
             announceEventModePrize?: (boolean|null);
 
-            /** LoadCarResponse transferred */
-            transferred: boolean;
-
             /** LoadCarResponse driveLastPlayedAt */
             driveLastPlayedAt?: (number|null);
 
             /** LoadCarResponse insurance */
             insurance?: (wm.protobuf.LoadCarResponse.IStoryInsurance|null);
+
+            /** LoadCarResponse ghostExpeditionState */
+            ghostExpeditionState?: (wm.protobuf.GhostExpeditionParticipantState|null);
         }
 
         /** Represents a LoadCarResponse. */
@@ -3440,6 +3530,12 @@ export namespace wm {
             /** LoadCarResponse rgScore. */
             public rgScore: number;
 
+            /** LoadCarResponse rgScoreVs_2. */
+            public rgScoreVs_2: number;
+
+            /** LoadCarResponse rgExpeditionScore. */
+            public rgExpeditionScore: number;
+
             /** LoadCarResponse rgRegionMapScore. */
             public rgRegionMapScore: number[];
 
@@ -3451,6 +3547,18 @@ export namespace wm {
 
             /** LoadCarResponse rgAcquireAllCrowns. */
             public rgAcquireAllCrowns: boolean;
+
+            /** LoadCarResponse rgHighwayClearCount. */
+            public rgHighwayClearCount: number;
+
+            /** LoadCarResponse rgHighwayPoint. */
+            public rgHighwayPoint: number;
+
+            /** LoadCarResponse rgHighwayStationClearBits. */
+            public rgHighwayStationClearBits: number;
+
+            /** LoadCarResponse rgHighwayPreviousDice. */
+            public rgHighwayPreviousDice: number;
 
             /** LoadCarResponse dressupLevel. */
             public dressupLevel: number;
@@ -3488,8 +3596,8 @@ export namespace wm {
             /** LoadCarResponse challengerReturnCount. */
             public challengerReturnCount: number;
 
-            /** LoadCarResponse numOfChallengers. */
-            public numOfChallengers: number;
+            /** LoadCarResponse numOfStampTargetCars. */
+            public numOfStampTargetCars: number;
 
             /** LoadCarResponse opponentGhost. */
             public opponentGhost?: (wm.protobuf.IGhostCar|null);
@@ -3521,14 +3629,14 @@ export namespace wm {
             /** LoadCarResponse announceEventModePrize. */
             public announceEventModePrize: boolean;
 
-            /** LoadCarResponse transferred. */
-            public transferred: boolean;
-
             /** LoadCarResponse driveLastPlayedAt. */
             public driveLastPlayedAt: number;
 
             /** LoadCarResponse insurance. */
             public insurance?: (wm.protobuf.LoadCarResponse.IStoryInsurance|null);
+
+            /** LoadCarResponse ghostExpeditionState. */
+            public ghostExpeditionState: wm.protobuf.GhostExpeditionParticipantState;
 
             /**
              * Creates a new LoadCarResponse instance using the specified properties.
@@ -5011,6 +5119,9 @@ export namespace wm {
             /** SaveGameResultRequest timeup */
             timeup: boolean;
 
+            /** SaveGameResultRequest noCredit */
+            noCredit?: (boolean|null);
+
             /** SaveGameResultRequest car */
             car?: (wm.protobuf.ICar|null);
 
@@ -5077,6 +5188,9 @@ export namespace wm {
 
             /** SaveGameResultRequest timeup. */
             public timeup: boolean;
+
+            /** SaveGameResultRequest noCredit. */
+            public noCredit: boolean;
 
             /** SaveGameResultRequest car. */
             public car?: (wm.protobuf.ICar|null);
@@ -5728,6 +5842,9 @@ export namespace wm {
                 /** GhostBattleResult dressupPoint */
                 dressupPoint?: (number|null);
 
+                /** GhostBattleResult rgTrophy */
+                rgTrophy?: (number|null);
+
                 /** GhostBattleResult rgRegionMapScore */
                 rgRegionMapScore?: (number[]|null);
 
@@ -5745,6 +5862,12 @@ export namespace wm {
 
                 /** GhostBattleResult acquireAllCrowns */
                 acquireAllCrowns?: (boolean|null);
+
+                /** GhostBattleResult expeditionResult */
+                expeditionResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult|null);
+
+                /** GhostBattleResult highwayResult */
+                highwayResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult|null);
             }
 
             /** Represents a GhostBattleResult. */
@@ -5789,6 +5912,9 @@ export namespace wm {
                 /** GhostBattleResult dressupPoint. */
                 public dressupPoint: number;
 
+                /** GhostBattleResult rgTrophy. */
+                public rgTrophy: number;
+
                 /** GhostBattleResult rgRegionMapScore. */
                 public rgRegionMapScore: number[];
 
@@ -5806,6 +5932,12 @@ export namespace wm {
 
                 /** GhostBattleResult acquireAllCrowns. */
                 public acquireAllCrowns: boolean;
+
+                /** GhostBattleResult expeditionResult. */
+                public expeditionResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult|null);
+
+                /** GhostBattleResult highwayResult. */
+                public highwayResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult|null);
 
                 /**
                  * Creates a new GhostBattleResult instance using the specified properties.
@@ -6002,6 +6134,260 @@ export namespace wm {
 
                     /**
                      * Gets the default type url for GhostBattleOpponent
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a GhostExpeditionResult. */
+                interface IGhostExpeditionResult {
+
+                    /** GhostExpeditionResult ghostExpeditionId */
+                    ghostExpeditionId: number;
+
+                    /** GhostExpeditionResult sugorokuPoint */
+                    sugorokuPoint?: (number|null);
+
+                    /** GhostExpeditionResult earnedScore */
+                    earnedScore?: (number|null);
+
+                    /** GhostExpeditionResult score */
+                    score?: (number|null);
+
+                    /** GhostExpeditionResult wantedId */
+                    wantedId?: (number|null);
+
+                    /** GhostExpeditionResult earnedItems */
+                    earnedItems?: (wm.protobuf.IUserItem[]|null);
+
+                    /** GhostExpeditionResult aftereventBonus */
+                    aftereventBonus?: (boolean[]|null);
+                }
+
+                /** Represents a GhostExpeditionResult. */
+                class GhostExpeditionResult implements IGhostExpeditionResult {
+
+                    /**
+                     * Constructs a new GhostExpeditionResult.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult);
+
+                    /** GhostExpeditionResult ghostExpeditionId. */
+                    public ghostExpeditionId: number;
+
+                    /** GhostExpeditionResult sugorokuPoint. */
+                    public sugorokuPoint: number;
+
+                    /** GhostExpeditionResult earnedScore. */
+                    public earnedScore: number;
+
+                    /** GhostExpeditionResult score. */
+                    public score: number;
+
+                    /** GhostExpeditionResult wantedId. */
+                    public wantedId: number;
+
+                    /** GhostExpeditionResult earnedItems. */
+                    public earnedItems: wm.protobuf.IUserItem[];
+
+                    /** GhostExpeditionResult aftereventBonus. */
+                    public aftereventBonus: boolean[];
+
+                    /**
+                     * Creates a new GhostExpeditionResult instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns GhostExpeditionResult instance
+                     */
+                    public static create(properties?: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult;
+
+                    /**
+                     * Encodes the specified GhostExpeditionResult message. Does not implicitly {@link wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult.verify|verify} messages.
+                     * @param message GhostExpeditionResult message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified GhostExpeditionResult message, length delimited. Does not implicitly {@link wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult.verify|verify} messages.
+                     * @param message GhostExpeditionResult message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a GhostExpeditionResult message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns GhostExpeditionResult
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult;
+
+                    /**
+                     * Decodes a GhostExpeditionResult message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns GhostExpeditionResult
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult;
+
+                    /**
+                     * Verifies a GhostExpeditionResult message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GhostExpeditionResult message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GhostExpeditionResult
+                     */
+                    public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult;
+
+                    /**
+                     * Creates a plain object from a GhostExpeditionResult message. Also converts values to other types if specified.
+                     * @param message GhostExpeditionResult
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostExpeditionResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GhostExpeditionResult to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for GhostExpeditionResult
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a GhostHighwayResult. */
+                interface IGhostHighwayResult {
+
+                    /** GhostHighwayResult rgHighwayClearCount */
+                    rgHighwayClearCount: number;
+
+                    /** GhostHighwayResult rgHighwayPoint */
+                    rgHighwayPoint: number;
+
+                    /** GhostHighwayResult rgHighwayStationClearBits */
+                    rgHighwayStationClearBits: number;
+
+                    /** GhostHighwayResult rgHighwayPreviousDice */
+                    rgHighwayPreviousDice: number;
+
+                    /** GhostHighwayResult rgHighwayRegionId */
+                    rgHighwayRegionId: number;
+                }
+
+                /** Represents a GhostHighwayResult. */
+                class GhostHighwayResult implements IGhostHighwayResult {
+
+                    /**
+                     * Constructs a new GhostHighwayResult.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult);
+
+                    /** GhostHighwayResult rgHighwayClearCount. */
+                    public rgHighwayClearCount: number;
+
+                    /** GhostHighwayResult rgHighwayPoint. */
+                    public rgHighwayPoint: number;
+
+                    /** GhostHighwayResult rgHighwayStationClearBits. */
+                    public rgHighwayStationClearBits: number;
+
+                    /** GhostHighwayResult rgHighwayPreviousDice. */
+                    public rgHighwayPreviousDice: number;
+
+                    /** GhostHighwayResult rgHighwayRegionId. */
+                    public rgHighwayRegionId: number;
+
+                    /**
+                     * Creates a new GhostHighwayResult instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns GhostHighwayResult instance
+                     */
+                    public static create(properties?: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult;
+
+                    /**
+                     * Encodes the specified GhostHighwayResult message. Does not implicitly {@link wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.verify|verify} messages.
+                     * @param message GhostHighwayResult message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified GhostHighwayResult message, length delimited. Does not implicitly {@link wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.verify|verify} messages.
+                     * @param message GhostHighwayResult message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a GhostHighwayResult message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns GhostHighwayResult
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult;
+
+                    /**
+                     * Decodes a GhostHighwayResult message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns GhostHighwayResult
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult;
+
+                    /**
+                     * Verifies a GhostHighwayResult message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GhostHighwayResult message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GhostHighwayResult
+                     */
+                    public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult;
+
+                    /**
+                     * Creates a plain object from a GhostHighwayResult message. Also converts values to other types if specified.
+                     * @param message GhostHighwayResult
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GhostHighwayResult to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for GhostHighwayResult
                      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                      * @returns The default type url
                      */
@@ -6549,6 +6935,9 @@ export namespace wm {
             /** LoadGhostBattleInfoResponse bookmarkedCars */
             bookmarkedCars?: (wm.protobuf.IBookmarkedCar[]|null);
 
+            /** LoadGhostBattleInfoResponse promotedToBuddy */
+            promotedToBuddy: boolean;
+
             /** LoadGhostBattleInfoResponse history */
             history?: (wm.protobuf.ICar[]|null);
 
@@ -6591,6 +6980,9 @@ export namespace wm {
 
             /** LoadGhostBattleInfoResponse bookmarkedCars. */
             public bookmarkedCars: wm.protobuf.IBookmarkedCar[];
+
+            /** LoadGhostBattleInfoResponse promotedToBuddy. */
+            public promotedToBuddy: boolean;
 
             /** LoadGhostBattleInfoResponse history. */
             public history: wm.protobuf.ICar[];
@@ -10611,8 +11003,8 @@ export namespace wm {
             /** SaveScreenshotRequest acquiringAuraMotifMetadata */
             acquiringAuraMotifMetadata?: (wm.protobuf.SaveScreenshotRequest.IAcquiringAuraMotifMetadata|null);
 
-            /** SaveScreenshotRequest ghostRegionMapMetadata */
-            ghostRegionMapMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata|null);
+            /** SaveScreenshotRequest ghostTrophyMetadata */
+            ghostTrophyMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata|null);
 
             /** SaveScreenshotRequest acquiringCrownMetadata */
             acquiringCrownMetadata?: (wm.protobuf.SaveScreenshotRequest.IAcquiringCrownMetadata|null);
@@ -10669,8 +11061,8 @@ export namespace wm {
             /** SaveScreenshotRequest acquiringAuraMotifMetadata. */
             public acquiringAuraMotifMetadata?: (wm.protobuf.SaveScreenshotRequest.IAcquiringAuraMotifMetadata|null);
 
-            /** SaveScreenshotRequest ghostRegionMapMetadata. */
-            public ghostRegionMapMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata|null);
+            /** SaveScreenshotRequest ghostTrophyMetadata. */
+            public ghostTrophyMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata|null);
 
             /** SaveScreenshotRequest acquiringCrownMetadata. */
             public acquiringCrownMetadata?: (wm.protobuf.SaveScreenshotRequest.IAcquiringCrownMetadata|null);
@@ -11339,115 +11731,109 @@ export namespace wm {
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
 
-            /** Properties of a GhostRegionMapMetadata. */
-            interface IGhostRegionMapMetadata {
+            /** Properties of a GhostTrophyMetadata. */
+            interface IGhostTrophyMetadata {
 
-                /** GhostRegionMapMetadata tunePower */
+                /** GhostTrophyMetadata tunePower */
                 tunePower: number;
 
-                /** GhostRegionMapMetadata tuneHandling */
+                /** GhostTrophyMetadata tuneHandling */
                 tuneHandling: number;
 
-                /** GhostRegionMapMetadata rgScore */
+                /** GhostTrophyMetadata rgScore */
                 rgScore: number;
-
-                /** GhostRegionMapMetadata rgRegionMapScore */
-                rgRegionMapScore?: (number[]|null);
             }
 
-            /** Represents a GhostRegionMapMetadata. */
-            class GhostRegionMapMetadata implements IGhostRegionMapMetadata {
+            /** Represents a GhostTrophyMetadata. */
+            class GhostTrophyMetadata implements IGhostTrophyMetadata {
 
                 /**
-                 * Constructs a new GhostRegionMapMetadata.
+                 * Constructs a new GhostTrophyMetadata.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata);
+                constructor(properties?: wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata);
 
-                /** GhostRegionMapMetadata tunePower. */
+                /** GhostTrophyMetadata tunePower. */
                 public tunePower: number;
 
-                /** GhostRegionMapMetadata tuneHandling. */
+                /** GhostTrophyMetadata tuneHandling. */
                 public tuneHandling: number;
 
-                /** GhostRegionMapMetadata rgScore. */
+                /** GhostTrophyMetadata rgScore. */
                 public rgScore: number;
 
-                /** GhostRegionMapMetadata rgRegionMapScore. */
-                public rgRegionMapScore: number[];
-
                 /**
-                 * Creates a new GhostRegionMapMetadata instance using the specified properties.
+                 * Creates a new GhostTrophyMetadata instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns GhostRegionMapMetadata instance
+                 * @returns GhostTrophyMetadata instance
                  */
-                public static create(properties?: wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata): wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata;
+                public static create(properties?: wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata): wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata;
 
                 /**
-                 * Encodes the specified GhostRegionMapMetadata message. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata.verify|verify} messages.
-                 * @param message GhostRegionMapMetadata message or plain object to encode
+                 * Encodes the specified GhostTrophyMetadata message. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata.verify|verify} messages.
+                 * @param message GhostTrophyMetadata message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified GhostRegionMapMetadata message, length delimited. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata.verify|verify} messages.
-                 * @param message GhostRegionMapMetadata message or plain object to encode
+                 * Encodes the specified GhostTrophyMetadata message, length delimited. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata.verify|verify} messages.
+                 * @param message GhostTrophyMetadata message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: wm.protobuf.SaveScreenshotRequest.IGhostRegionMapMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: wm.protobuf.SaveScreenshotRequest.IGhostTrophyMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a GhostRegionMapMetadata message from the specified reader or buffer.
+                 * Decodes a GhostTrophyMetadata message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns GhostRegionMapMetadata
+                 * @returns GhostTrophyMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata;
 
                 /**
-                 * Decodes a GhostRegionMapMetadata message from the specified reader or buffer, length delimited.
+                 * Decodes a GhostTrophyMetadata message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns GhostRegionMapMetadata
+                 * @returns GhostTrophyMetadata
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata;
 
                 /**
-                 * Verifies a GhostRegionMapMetadata message.
+                 * Verifies a GhostTrophyMetadata message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a GhostRegionMapMetadata message from a plain object. Also converts values to their respective internal types.
+                 * Creates a GhostTrophyMetadata message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns GhostRegionMapMetadata
+                 * @returns GhostTrophyMetadata
                  */
-                public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata;
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata;
 
                 /**
-                 * Creates a plain object from a GhostRegionMapMetadata message. Also converts values to other types if specified.
-                 * @param message GhostRegionMapMetadata
+                 * Creates a plain object from a GhostTrophyMetadata message. Also converts values to other types if specified.
+                 * @param message GhostTrophyMetadata
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: wm.protobuf.SaveScreenshotRequest.GhostRegionMapMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: wm.protobuf.SaveScreenshotRequest.GhostTrophyMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this GhostRegionMapMetadata to JSON.
+                 * Converts this GhostTrophyMetadata to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
 
                 /**
-                 * Gets the default type url for GhostRegionMapMetadata
+                 * Gets the default type url for GhostTrophyMetadata
                  * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                  * @returns The default type url
                  */
@@ -14371,6 +14757,384 @@ export namespace wm {
             }
         }
 
+        /** Properties of a SearchCarsRequest. */
+        interface ISearchCarsRequest {
+
+            /** SearchCarsRequest carId */
+            carId: number;
+
+            /** SearchCarsRequest selectionMethod */
+            selectionMethod: wm.protobuf.GhostSelectionMethod;
+
+            /** SearchCarsRequest area */
+            area: number;
+
+            /** SearchCarsRequest placeId */
+            placeId: string;
+
+            /** SearchCarsRequest regionId */
+            regionId?: (number|null);
+
+            /** SearchCarsRequest selectPlaceId */
+            selectPlaceId?: (string|null);
+
+            /** SearchCarsRequest selectManufacturer */
+            selectManufacturer?: (number|null);
+
+            /** SearchCarsRequest defaultGhostId */
+            defaultGhostId?: (number|null);
+        }
+
+        /** Represents a SearchCarsRequest. */
+        class SearchCarsRequest implements ISearchCarsRequest {
+
+            /**
+             * Constructs a new SearchCarsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ISearchCarsRequest);
+
+            /** SearchCarsRequest carId. */
+            public carId: number;
+
+            /** SearchCarsRequest selectionMethod. */
+            public selectionMethod: wm.protobuf.GhostSelectionMethod;
+
+            /** SearchCarsRequest area. */
+            public area: number;
+
+            /** SearchCarsRequest placeId. */
+            public placeId: string;
+
+            /** SearchCarsRequest regionId. */
+            public regionId: number;
+
+            /** SearchCarsRequest selectPlaceId. */
+            public selectPlaceId: string;
+
+            /** SearchCarsRequest selectManufacturer. */
+            public selectManufacturer: number;
+
+            /** SearchCarsRequest defaultGhostId. */
+            public defaultGhostId: number;
+
+            /**
+             * Creates a new SearchCarsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SearchCarsRequest instance
+             */
+            public static create(properties?: wm.protobuf.ISearchCarsRequest): wm.protobuf.SearchCarsRequest;
+
+            /**
+             * Encodes the specified SearchCarsRequest message. Does not implicitly {@link wm.protobuf.SearchCarsRequest.verify|verify} messages.
+             * @param message SearchCarsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ISearchCarsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SearchCarsRequest message, length delimited. Does not implicitly {@link wm.protobuf.SearchCarsRequest.verify|verify} messages.
+             * @param message SearchCarsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ISearchCarsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SearchCarsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SearchCarsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SearchCarsRequest;
+
+            /**
+             * Decodes a SearchCarsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SearchCarsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SearchCarsRequest;
+
+            /**
+             * Verifies a SearchCarsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SearchCarsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SearchCarsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.SearchCarsRequest;
+
+            /**
+             * Creates a plain object from a SearchCarsRequest message. Also converts values to other types if specified.
+             * @param message SearchCarsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.SearchCarsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SearchCarsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SearchCarsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a SearchCarsResponse. */
+        interface ISearchCarsResponse {
+
+            /** SearchCarsResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** SearchCarsResponse ramp */
+            ramp: number;
+
+            /** SearchCarsResponse path */
+            path: number;
+
+            /** SearchCarsResponse ghosts */
+            ghosts?: (wm.protobuf.IGhostCar[]|null);
+
+            /** SearchCarsResponse selectionMethod */
+            selectionMethod: wm.protobuf.PathSelectionMethod;
+
+            /** SearchCarsResponse rates */
+            rates?: (wm.protobuf.SearchCarsResponse.IRate[]|null);
+        }
+
+        /** Represents a SearchCarsResponse. */
+        class SearchCarsResponse implements ISearchCarsResponse {
+
+            /**
+             * Constructs a new SearchCarsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ISearchCarsResponse);
+
+            /** SearchCarsResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** SearchCarsResponse ramp. */
+            public ramp: number;
+
+            /** SearchCarsResponse path. */
+            public path: number;
+
+            /** SearchCarsResponse ghosts. */
+            public ghosts: wm.protobuf.IGhostCar[];
+
+            /** SearchCarsResponse selectionMethod. */
+            public selectionMethod: wm.protobuf.PathSelectionMethod;
+
+            /** SearchCarsResponse rates. */
+            public rates: wm.protobuf.SearchCarsResponse.IRate[];
+
+            /**
+             * Creates a new SearchCarsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SearchCarsResponse instance
+             */
+            public static create(properties?: wm.protobuf.ISearchCarsResponse): wm.protobuf.SearchCarsResponse;
+
+            /**
+             * Encodes the specified SearchCarsResponse message. Does not implicitly {@link wm.protobuf.SearchCarsResponse.verify|verify} messages.
+             * @param message SearchCarsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ISearchCarsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SearchCarsResponse message, length delimited. Does not implicitly {@link wm.protobuf.SearchCarsResponse.verify|verify} messages.
+             * @param message SearchCarsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ISearchCarsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SearchCarsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SearchCarsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SearchCarsResponse;
+
+            /**
+             * Decodes a SearchCarsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SearchCarsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SearchCarsResponse;
+
+            /**
+             * Verifies a SearchCarsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SearchCarsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SearchCarsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.SearchCarsResponse;
+
+            /**
+             * Creates a plain object from a SearchCarsResponse message. Also converts values to other types if specified.
+             * @param message SearchCarsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.SearchCarsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SearchCarsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SearchCarsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace SearchCarsResponse {
+
+            /** Properties of a Rate. */
+            interface IRate {
+
+                /** Rate carId */
+                carId: number;
+
+                /** Rate type */
+                type: wm.protobuf.GhostRateType;
+
+                /** Rate rate */
+                rate?: (number|null);
+            }
+
+            /** Represents a Rate. */
+            class Rate implements IRate {
+
+                /**
+                 * Constructs a new Rate.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.SearchCarsResponse.IRate);
+
+                /** Rate carId. */
+                public carId: number;
+
+                /** Rate type. */
+                public type: wm.protobuf.GhostRateType;
+
+                /** Rate rate. */
+                public rate: number;
+
+                /**
+                 * Creates a new Rate instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Rate instance
+                 */
+                public static create(properties?: wm.protobuf.SearchCarsResponse.IRate): wm.protobuf.SearchCarsResponse.Rate;
+
+                /**
+                 * Encodes the specified Rate message. Does not implicitly {@link wm.protobuf.SearchCarsResponse.Rate.verify|verify} messages.
+                 * @param message Rate message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.SearchCarsResponse.IRate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Rate message, length delimited. Does not implicitly {@link wm.protobuf.SearchCarsResponse.Rate.verify|verify} messages.
+                 * @param message Rate message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.SearchCarsResponse.IRate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SearchCarsResponse.Rate;
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SearchCarsResponse.Rate;
+
+                /**
+                 * Verifies a Rate message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Rate message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Rate
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.SearchCarsResponse.Rate;
+
+                /**
+                 * Creates a plain object from a Rate message. Also converts values to other types if specified.
+                 * @param message Rate
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.SearchCarsResponse.Rate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Rate to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for Rate
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
         /** Properties of a LoadPathsAndTuningsRequest. */
         interface ILoadPathsAndTuningsRequest {
 
@@ -15047,6 +15811,1498 @@ export namespace wm {
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
+        }
+
+        /** Properties of a LoadGhostExpeditionInfoRequest. */
+        interface ILoadGhostExpeditionInfoRequest {
+
+            /** LoadGhostExpeditionInfoRequest ghostExpeditionId */
+            ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionInfoRequest carId */
+            carId: number;
+        }
+
+        /** Represents a LoadGhostExpeditionInfoRequest. */
+        class LoadGhostExpeditionInfoRequest implements ILoadGhostExpeditionInfoRequest {
+
+            /**
+             * Constructs a new LoadGhostExpeditionInfoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionInfoRequest);
+
+            /** LoadGhostExpeditionInfoRequest ghostExpeditionId. */
+            public ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionInfoRequest carId. */
+            public carId: number;
+
+            /**
+             * Creates a new LoadGhostExpeditionInfoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionInfoRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionInfoRequest): wm.protobuf.LoadGhostExpeditionInfoRequest;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionInfoRequest message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionInfoRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionInfoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionInfoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionInfoRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionInfoRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionInfoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionInfoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionInfoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionInfoRequest;
+
+            /**
+             * Decodes a LoadGhostExpeditionInfoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionInfoRequest;
+
+            /**
+             * Verifies a LoadGhostExpeditionInfoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionInfoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionInfoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionInfoRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionInfoRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionInfoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionInfoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionInfoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionInfoRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionInfoResponse. */
+        interface ILoadGhostExpeditionInfoResponse {
+
+            /** LoadGhostExpeditionInfoResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionInfoResponse sugorokuPoint */
+            sugorokuPoint?: (number|null);
+
+            /** LoadGhostExpeditionInfoResponse score */
+            score?: (number|null);
+
+            /** LoadGhostExpeditionInfoResponse localScore */
+            localScore: number;
+
+            /** LoadGhostExpeditionInfoResponse consecutiveLosses */
+            consecutiveLosses?: (number|null);
+
+            /** LoadGhostExpeditionInfoResponse rescuedSugorokuPoint */
+            rescuedSugorokuPoint?: (number|null);
+
+            /** LoadGhostExpeditionInfoResponse rescuers */
+            rescuers?: (wm.protobuf.ICarEntry[]|null);
+
+            /** LoadGhostExpeditionInfoResponse aftereventBattledCars */
+            aftereventBattledCars?: (number[]|null);
+        }
+
+        /** Represents a LoadGhostExpeditionInfoResponse. */
+        class LoadGhostExpeditionInfoResponse implements ILoadGhostExpeditionInfoResponse {
+
+            /**
+             * Constructs a new LoadGhostExpeditionInfoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionInfoResponse);
+
+            /** LoadGhostExpeditionInfoResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionInfoResponse sugorokuPoint. */
+            public sugorokuPoint: number;
+
+            /** LoadGhostExpeditionInfoResponse score. */
+            public score: number;
+
+            /** LoadGhostExpeditionInfoResponse localScore. */
+            public localScore: number;
+
+            /** LoadGhostExpeditionInfoResponse consecutiveLosses. */
+            public consecutiveLosses: number;
+
+            /** LoadGhostExpeditionInfoResponse rescuedSugorokuPoint. */
+            public rescuedSugorokuPoint: number;
+
+            /** LoadGhostExpeditionInfoResponse rescuers. */
+            public rescuers: wm.protobuf.ICarEntry[];
+
+            /** LoadGhostExpeditionInfoResponse aftereventBattledCars. */
+            public aftereventBattledCars: number[];
+
+            /**
+             * Creates a new LoadGhostExpeditionInfoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionInfoResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionInfoResponse): wm.protobuf.LoadGhostExpeditionInfoResponse;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionInfoResponse message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionInfoResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionInfoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionInfoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionInfoResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionInfoResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionInfoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionInfoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionInfoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionInfoResponse;
+
+            /**
+             * Decodes a LoadGhostExpeditionInfoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionInfoResponse;
+
+            /**
+             * Verifies a LoadGhostExpeditionInfoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionInfoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionInfoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionInfoResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionInfoResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionInfoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionInfoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionInfoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionInfoResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionTargetByPathRequest. */
+        interface ILoadGhostExpeditionTargetByPathRequest {
+
+            /** LoadGhostExpeditionTargetByPathRequest ghostExpeditionId */
+            ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionTargetByPathRequest carId */
+            carId: number;
+        }
+
+        /** Represents a LoadGhostExpeditionTargetByPathRequest. */
+        class LoadGhostExpeditionTargetByPathRequest implements ILoadGhostExpeditionTargetByPathRequest {
+
+            /**
+             * Constructs a new LoadGhostExpeditionTargetByPathRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionTargetByPathRequest);
+
+            /** LoadGhostExpeditionTargetByPathRequest ghostExpeditionId. */
+            public ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionTargetByPathRequest carId. */
+            public carId: number;
+
+            /**
+             * Creates a new LoadGhostExpeditionTargetByPathRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionTargetByPathRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionTargetByPathRequest): wm.protobuf.LoadGhostExpeditionTargetByPathRequest;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetByPathRequest message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetByPathRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionTargetByPathRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetByPathRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetByPathRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionTargetByPathRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetByPathRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionTargetByPathRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetByPathRequest;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetByPathRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionTargetByPathRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetByPathRequest;
+
+            /**
+             * Verifies a LoadGhostExpeditionTargetByPathRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionTargetByPathRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionTargetByPathRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetByPathRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionTargetByPathRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionTargetByPathRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetByPathRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionTargetByPathRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionTargetByPathRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionTargetByPathResponse. */
+        interface ILoadGhostExpeditionTargetByPathResponse {
+
+            /** LoadGhostExpeditionTargetByPathResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionTargetByPathResponse areas */
+            areas?: (wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats[]|null);
+
+            /** LoadGhostExpeditionTargetByPathResponse selectionMethod */
+            selectionMethod?: (wm.protobuf.PathSelectionMethod|null);
+        }
+
+        /** Represents a LoadGhostExpeditionTargetByPathResponse. */
+        class LoadGhostExpeditionTargetByPathResponse implements ILoadGhostExpeditionTargetByPathResponse {
+
+            /**
+             * Constructs a new LoadGhostExpeditionTargetByPathResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionTargetByPathResponse);
+
+            /** LoadGhostExpeditionTargetByPathResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionTargetByPathResponse areas. */
+            public areas: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats[];
+
+            /** LoadGhostExpeditionTargetByPathResponse selectionMethod. */
+            public selectionMethod: wm.protobuf.PathSelectionMethod;
+
+            /**
+             * Creates a new LoadGhostExpeditionTargetByPathResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionTargetByPathResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionTargetByPathResponse): wm.protobuf.LoadGhostExpeditionTargetByPathResponse;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetByPathResponse message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetByPathResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionTargetByPathResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetByPathResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetByPathResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionTargetByPathResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetByPathResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionTargetByPathResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetByPathResponse;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetByPathResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionTargetByPathResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetByPathResponse;
+
+            /**
+             * Verifies a LoadGhostExpeditionTargetByPathResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionTargetByPathResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionTargetByPathResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetByPathResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionTargetByPathResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionTargetByPathResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionTargetByPathResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionTargetByPathResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace LoadGhostExpeditionTargetByPathResponse {
+
+            /** Properties of an AreaStats. */
+            interface IAreaStats {
+
+                /** AreaStats area */
+                area: number;
+
+                /** AreaStats path */
+                path: number;
+
+                /** AreaStats wantedInfo */
+                wantedInfo?: (wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo[]|null);
+            }
+
+            /** Represents an AreaStats. */
+            class AreaStats implements IAreaStats {
+
+                /**
+                 * Constructs a new AreaStats.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats);
+
+                /** AreaStats area. */
+                public area: number;
+
+                /** AreaStats path. */
+                public path: number;
+
+                /** AreaStats wantedInfo. */
+                public wantedInfo: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo[];
+
+                /**
+                 * Creates a new AreaStats instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns AreaStats instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats;
+
+                /**
+                 * Encodes the specified AreaStats message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.verify|verify} messages.
+                 * @param message AreaStats message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified AreaStats message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.verify|verify} messages.
+                 * @param message AreaStats message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.IAreaStats, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes an AreaStats message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns AreaStats
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats;
+
+                /**
+                 * Decodes an AreaStats message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns AreaStats
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats;
+
+                /**
+                 * Verifies an AreaStats message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates an AreaStats message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns AreaStats
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats;
+
+                /**
+                 * Creates a plain object from an AreaStats message. Also converts values to other types if specified.
+                 * @param message AreaStats
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this AreaStats to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for AreaStats
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            namespace AreaStats {
+
+                /** Properties of a WantedInfo. */
+                interface IWantedInfo {
+
+                    /** WantedInfo wantedLevel */
+                    wantedLevel: number;
+
+                    /** WantedInfo numOfWantedCars */
+                    numOfWantedCars: number;
+                }
+
+                /** Represents a WantedInfo. */
+                class WantedInfo implements IWantedInfo {
+
+                    /**
+                     * Constructs a new WantedInfo.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo);
+
+                    /** WantedInfo wantedLevel. */
+                    public wantedLevel: number;
+
+                    /** WantedInfo numOfWantedCars. */
+                    public numOfWantedCars: number;
+
+                    /**
+                     * Creates a new WantedInfo instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns WantedInfo instance
+                     */
+                    public static create(properties?: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo;
+
+                    /**
+                     * Encodes the specified WantedInfo message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo.verify|verify} messages.
+                     * @param message WantedInfo message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified WantedInfo message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo.verify|verify} messages.
+                     * @param message WantedInfo message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.IWantedInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a WantedInfo message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns WantedInfo
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo;
+
+                    /**
+                     * Decodes a WantedInfo message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns WantedInfo
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo;
+
+                    /**
+                     * Verifies a WantedInfo message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a WantedInfo message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns WantedInfo
+                     */
+                    public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo;
+
+                    /**
+                     * Creates a plain object from a WantedInfo message. Also converts values to other types if specified.
+                     * @param message WantedInfo
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetByPathResponse.AreaStats.WantedInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this WantedInfo to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for WantedInfo
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+            }
+        }
+
+        /** Properties of a LoadGhostExpeditionTargetsRequest. */
+        interface ILoadGhostExpeditionTargetsRequest {
+
+            /** LoadGhostExpeditionTargetsRequest ghostExpeditionId */
+            ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionTargetsRequest carId */
+            carId: number;
+
+            /** LoadGhostExpeditionTargetsRequest path */
+            path: number;
+        }
+
+        /** Represents a LoadGhostExpeditionTargetsRequest. */
+        class LoadGhostExpeditionTargetsRequest implements ILoadGhostExpeditionTargetsRequest {
+
+            /**
+             * Constructs a new LoadGhostExpeditionTargetsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionTargetsRequest);
+
+            /** LoadGhostExpeditionTargetsRequest ghostExpeditionId. */
+            public ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionTargetsRequest carId. */
+            public carId: number;
+
+            /** LoadGhostExpeditionTargetsRequest path. */
+            public path: number;
+
+            /**
+             * Creates a new LoadGhostExpeditionTargetsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionTargetsRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionTargetsRequest): wm.protobuf.LoadGhostExpeditionTargetsRequest;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetsRequest message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetsRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionTargetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetsRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetsRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionTargetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetsRequest;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetsRequest;
+
+            /**
+             * Verifies a LoadGhostExpeditionTargetsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionTargetsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionTargetsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetsRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionTargetsRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionTargetsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionTargetsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionTargetsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionTargetsResponse. */
+        interface ILoadGhostExpeditionTargetsResponse {
+
+            /** LoadGhostExpeditionTargetsResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionTargetsResponse candidates */
+            candidates?: (wm.protobuf.IGhostCar[]|null);
+
+            /** LoadGhostExpeditionTargetsResponse wantedCars */
+            wantedCars?: (wm.protobuf.IWantedCar[]|null);
+
+            /** LoadGhostExpeditionTargetsResponse localScore */
+            localScore: number;
+
+            /** LoadGhostExpeditionTargetsResponse recentWinners */
+            recentWinners?: (wm.protobuf.ICarEntry[]|null);
+        }
+
+        /** Represents a LoadGhostExpeditionTargetsResponse. */
+        class LoadGhostExpeditionTargetsResponse implements ILoadGhostExpeditionTargetsResponse {
+
+            /**
+             * Constructs a new LoadGhostExpeditionTargetsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionTargetsResponse);
+
+            /** LoadGhostExpeditionTargetsResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionTargetsResponse candidates. */
+            public candidates: wm.protobuf.IGhostCar[];
+
+            /** LoadGhostExpeditionTargetsResponse wantedCars. */
+            public wantedCars: wm.protobuf.IWantedCar[];
+
+            /** LoadGhostExpeditionTargetsResponse localScore. */
+            public localScore: number;
+
+            /** LoadGhostExpeditionTargetsResponse recentWinners. */
+            public recentWinners: wm.protobuf.ICarEntry[];
+
+            /**
+             * Creates a new LoadGhostExpeditionTargetsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionTargetsResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionTargetsResponse): wm.protobuf.LoadGhostExpeditionTargetsResponse;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetsResponse message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetsResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionTargetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionTargetsResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionTargetsResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionTargetsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionTargetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionTargetsResponse;
+
+            /**
+             * Decodes a LoadGhostExpeditionTargetsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionTargetsResponse;
+
+            /**
+             * Verifies a LoadGhostExpeditionTargetsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionTargetsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionTargetsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionTargetsResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionTargetsResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionTargetsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionTargetsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionTargetsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionTargetsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionResultRequest. */
+        interface ILoadGhostExpeditionResultRequest {
+
+            /** LoadGhostExpeditionResultRequest ghostExpeditionId */
+            ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionResultRequest carId */
+            carId: number;
+        }
+
+        /** Represents a LoadGhostExpeditionResultRequest. */
+        class LoadGhostExpeditionResultRequest implements ILoadGhostExpeditionResultRequest {
+
+            /**
+             * Constructs a new LoadGhostExpeditionResultRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionResultRequest);
+
+            /** LoadGhostExpeditionResultRequest ghostExpeditionId. */
+            public ghostExpeditionId: number;
+
+            /** LoadGhostExpeditionResultRequest carId. */
+            public carId: number;
+
+            /**
+             * Creates a new LoadGhostExpeditionResultRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionResultRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionResultRequest): wm.protobuf.LoadGhostExpeditionResultRequest;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionResultRequest message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionResultRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionResultRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionResultRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionResultRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionResultRequest.verify|verify} messages.
+             * @param message LoadGhostExpeditionResultRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionResultRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionResultRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionResultRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionResultRequest;
+
+            /**
+             * Decodes a LoadGhostExpeditionResultRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionResultRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionResultRequest;
+
+            /**
+             * Verifies a LoadGhostExpeditionResultRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionResultRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionResultRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionResultRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionResultRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionResultRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionResultRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionResultRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionResultRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostExpeditionResultResponse. */
+        interface ILoadGhostExpeditionResultResponse {
+
+            /** LoadGhostExpeditionResultResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionResultResponse score */
+            score: number;
+
+            /** LoadGhostExpeditionResultResponse localScore */
+            localScore: number;
+
+            /** LoadGhostExpeditionResultResponse localRanking */
+            localRanking?: (wm.protobuf.IGhostExpeditionRankingEntry[]|null);
+        }
+
+        /** Represents a LoadGhostExpeditionResultResponse. */
+        class LoadGhostExpeditionResultResponse implements ILoadGhostExpeditionResultResponse {
+
+            /**
+             * Constructs a new LoadGhostExpeditionResultResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostExpeditionResultResponse);
+
+            /** LoadGhostExpeditionResultResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostExpeditionResultResponse score. */
+            public score: number;
+
+            /** LoadGhostExpeditionResultResponse localScore. */
+            public localScore: number;
+
+            /** LoadGhostExpeditionResultResponse localRanking. */
+            public localRanking: wm.protobuf.IGhostExpeditionRankingEntry[];
+
+            /**
+             * Creates a new LoadGhostExpeditionResultResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostExpeditionResultResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostExpeditionResultResponse): wm.protobuf.LoadGhostExpeditionResultResponse;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionResultResponse message. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionResultResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionResultResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostExpeditionResultResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostExpeditionResultResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostExpeditionResultResponse.verify|verify} messages.
+             * @param message LoadGhostExpeditionResultResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostExpeditionResultResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostExpeditionResultResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostExpeditionResultResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostExpeditionResultResponse;
+
+            /**
+             * Decodes a LoadGhostExpeditionResultResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostExpeditionResultResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostExpeditionResultResponse;
+
+            /**
+             * Verifies a LoadGhostExpeditionResultResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostExpeditionResultResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostExpeditionResultResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostExpeditionResultResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostExpeditionResultResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostExpeditionResultResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostExpeditionResultResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostExpeditionResultResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostExpeditionResultResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a SaveNetworkStatRequest. */
+        interface ISaveNetworkStatRequest {
+
+            /** SaveNetworkStatRequest rtt */
+            rtt: number;
+
+            /** SaveNetworkStatRequest request */
+            request: number;
+
+            /** SaveNetworkStatRequest timedOut */
+            timedOut: number;
+
+            /** SaveNetworkStatRequest retry */
+            retry: number;
+
+            /** SaveNetworkStatRequest failed */
+            failed: number;
+
+            /** SaveNetworkStatRequest timestamp */
+            timestamp: number;
+
+            /** SaveNetworkStatRequest pingFailed */
+            pingFailed: number;
+
+            /** SaveNetworkStatRequest logs */
+            logs?: (wm.protobuf.SaveNetworkStatRequest.IRequestLog[]|null);
+        }
+
+        /** Represents a SaveNetworkStatRequest. */
+        class SaveNetworkStatRequest implements ISaveNetworkStatRequest {
+
+            /**
+             * Constructs a new SaveNetworkStatRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ISaveNetworkStatRequest);
+
+            /** SaveNetworkStatRequest rtt. */
+            public rtt: number;
+
+            /** SaveNetworkStatRequest request. */
+            public request: number;
+
+            /** SaveNetworkStatRequest timedOut. */
+            public timedOut: number;
+
+            /** SaveNetworkStatRequest retry. */
+            public retry: number;
+
+            /** SaveNetworkStatRequest failed. */
+            public failed: number;
+
+            /** SaveNetworkStatRequest timestamp. */
+            public timestamp: number;
+
+            /** SaveNetworkStatRequest pingFailed. */
+            public pingFailed: number;
+
+            /** SaveNetworkStatRequest logs. */
+            public logs: wm.protobuf.SaveNetworkStatRequest.IRequestLog[];
+
+            /**
+             * Creates a new SaveNetworkStatRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SaveNetworkStatRequest instance
+             */
+            public static create(properties?: wm.protobuf.ISaveNetworkStatRequest): wm.protobuf.SaveNetworkStatRequest;
+
+            /**
+             * Encodes the specified SaveNetworkStatRequest message. Does not implicitly {@link wm.protobuf.SaveNetworkStatRequest.verify|verify} messages.
+             * @param message SaveNetworkStatRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ISaveNetworkStatRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SaveNetworkStatRequest message, length delimited. Does not implicitly {@link wm.protobuf.SaveNetworkStatRequest.verify|verify} messages.
+             * @param message SaveNetworkStatRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ISaveNetworkStatRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SaveNetworkStatRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SaveNetworkStatRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveNetworkStatRequest;
+
+            /**
+             * Decodes a SaveNetworkStatRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SaveNetworkStatRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveNetworkStatRequest;
+
+            /**
+             * Verifies a SaveNetworkStatRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SaveNetworkStatRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SaveNetworkStatRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveNetworkStatRequest;
+
+            /**
+             * Creates a plain object from a SaveNetworkStatRequest message. Also converts values to other types if specified.
+             * @param message SaveNetworkStatRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.SaveNetworkStatRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SaveNetworkStatRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SaveNetworkStatRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace SaveNetworkStatRequest {
+
+            /** Properties of a RequestLog. */
+            interface IRequestLog {
+
+                /** RequestLog type */
+                type: wm.protobuf.MethodType;
+
+                /** RequestLog request */
+                request: number;
+
+                /** RequestLog timedOut */
+                timedOut: number;
+
+                /** RequestLog retry */
+                retry: number;
+
+                /** RequestLog failed */
+                failed: number;
+
+                /** RequestLog retryMaxReached */
+                retryMaxReached: number;
+
+                /** RequestLog responseAverage */
+                responseAverage: number;
+            }
+
+            /** Represents a RequestLog. */
+            class RequestLog implements IRequestLog {
+
+                /**
+                 * Constructs a new RequestLog.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.SaveNetworkStatRequest.IRequestLog);
+
+                /** RequestLog type. */
+                public type: wm.protobuf.MethodType;
+
+                /** RequestLog request. */
+                public request: number;
+
+                /** RequestLog timedOut. */
+                public timedOut: number;
+
+                /** RequestLog retry. */
+                public retry: number;
+
+                /** RequestLog failed. */
+                public failed: number;
+
+                /** RequestLog retryMaxReached. */
+                public retryMaxReached: number;
+
+                /** RequestLog responseAverage. */
+                public responseAverage: number;
+
+                /**
+                 * Creates a new RequestLog instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns RequestLog instance
+                 */
+                public static create(properties?: wm.protobuf.SaveNetworkStatRequest.IRequestLog): wm.protobuf.SaveNetworkStatRequest.RequestLog;
+
+                /**
+                 * Encodes the specified RequestLog message. Does not implicitly {@link wm.protobuf.SaveNetworkStatRequest.RequestLog.verify|verify} messages.
+                 * @param message RequestLog message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.SaveNetworkStatRequest.IRequestLog, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified RequestLog message, length delimited. Does not implicitly {@link wm.protobuf.SaveNetworkStatRequest.RequestLog.verify|verify} messages.
+                 * @param message RequestLog message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.SaveNetworkStatRequest.IRequestLog, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a RequestLog message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns RequestLog
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveNetworkStatRequest.RequestLog;
+
+                /**
+                 * Decodes a RequestLog message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns RequestLog
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveNetworkStatRequest.RequestLog;
+
+                /**
+                 * Verifies a RequestLog message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a RequestLog message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns RequestLog
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveNetworkStatRequest.RequestLog;
+
+                /**
+                 * Creates a plain object from a RequestLog message. Also converts values to other types if specified.
+                 * @param message RequestLog
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.SaveNetworkStatRequest.RequestLog, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this RequestLog to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for RequestLog
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a SaveNetworkStatResponse. */
+        interface ISaveNetworkStatResponse {
+
+            /** SaveNetworkStatResponse error */
+            error: wm.protobuf.ErrorCode;
+        }
+
+        /** Represents a SaveNetworkStatResponse. */
+        class SaveNetworkStatResponse implements ISaveNetworkStatResponse {
+
+            /**
+             * Constructs a new SaveNetworkStatResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ISaveNetworkStatResponse);
+
+            /** SaveNetworkStatResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /**
+             * Creates a new SaveNetworkStatResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SaveNetworkStatResponse instance
+             */
+            public static create(properties?: wm.protobuf.ISaveNetworkStatResponse): wm.protobuf.SaveNetworkStatResponse;
+
+            /**
+             * Encodes the specified SaveNetworkStatResponse message. Does not implicitly {@link wm.protobuf.SaveNetworkStatResponse.verify|verify} messages.
+             * @param message SaveNetworkStatResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ISaveNetworkStatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SaveNetworkStatResponse message, length delimited. Does not implicitly {@link wm.protobuf.SaveNetworkStatResponse.verify|verify} messages.
+             * @param message SaveNetworkStatResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ISaveNetworkStatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SaveNetworkStatResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SaveNetworkStatResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveNetworkStatResponse;
+
+            /**
+             * Decodes a SaveNetworkStatResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SaveNetworkStatResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveNetworkStatResponse;
+
+            /**
+             * Verifies a SaveNetworkStatResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SaveNetworkStatResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SaveNetworkStatResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveNetworkStatResponse;
+
+            /**
+             * Creates a plain object from a SaveNetworkStatResponse message. Also converts values to other types if specified.
+             * @param message SaveNetworkStatResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.SaveNetworkStatResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SaveNetworkStatResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SaveNetworkStatResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
         /** Properties of a Car. */
@@ -16093,9 +18349,6 @@ export namespace wm {
 
             /** StampTargetCar locked */
             locked: boolean;
-
-            /** StampTargetCar recommended */
-            recommended: boolean;
         }
 
         /** Represents a StampTargetCar. */
@@ -16115,9 +18368,6 @@ export namespace wm {
 
             /** StampTargetCar locked. */
             public locked: boolean;
-
-            /** StampTargetCar recommended. */
-            public recommended: boolean;
 
             /**
              * Creates a new StampTargetCar instance using the specified properties.
@@ -17205,18 +19455,6 @@ export namespace wm {
 
             /** TransferNotice needToSeeTransferred */
             needToSeeTransferred: boolean;
-
-            /** TransferNotice totalMaxiGold */
-            totalMaxiGold?: (number|null);
-
-            /** TransferNotice numOfPorscheCars */
-            numOfPorscheCars?: (number|null);
-
-            /** TransferNotice porscheModels */
-            porscheModels?: (number[]|null);
-
-            /** TransferNotice hasR35 */
-            hasR35?: (boolean|null);
         }
 
         /** Represents a TransferNotice. */
@@ -17230,18 +19468,6 @@ export namespace wm {
 
             /** TransferNotice needToSeeTransferred. */
             public needToSeeTransferred: boolean;
-
-            /** TransferNotice totalMaxiGold. */
-            public totalMaxiGold: number;
-
-            /** TransferNotice numOfPorscheCars. */
-            public numOfPorscheCars: number;
-
-            /** TransferNotice porscheModels. */
-            public porscheModels: number[];
-
-            /** TransferNotice hasR35. */
-            public hasR35: boolean;
 
             /**
              * Creates a new TransferNotice instance using the specified properties.
@@ -17668,6 +19894,9 @@ export namespace wm {
 
             /** UserItem expireAt */
             expireAt?: (number|null);
+
+            /** UserItem titleName */
+            titleName?: (string|null);
         }
 
         /** Represents a UserItem. */
@@ -17693,6 +19922,9 @@ export namespace wm {
 
             /** UserItem expireAt. */
             public expireAt: number;
+
+            /** UserItem titleName. */
+            public titleName: string;
 
             /**
              * Creates a new UserItem instance using the specified properties.
@@ -17887,6 +20119,496 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GhostExpeditionSchedule. */
+        interface IGhostExpeditionSchedule {
+
+            /** GhostExpeditionSchedule ghostExpeditionId */
+            ghostExpeditionId: number;
+
+            /** GhostExpeditionSchedule startAt */
+            startAt: number;
+
+            /** GhostExpeditionSchedule endAt */
+            endAt: number;
+
+            /** GhostExpeditionSchedule aftereventEndAt */
+            aftereventEndAt: number;
+
+            /** GhostExpeditionSchedule opponentCountry */
+            opponentCountry: string;
+        }
+
+        /** Represents a GhostExpeditionSchedule. */
+        class GhostExpeditionSchedule implements IGhostExpeditionSchedule {
+
+            /**
+             * Constructs a new GhostExpeditionSchedule.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostExpeditionSchedule);
+
+            /** GhostExpeditionSchedule ghostExpeditionId. */
+            public ghostExpeditionId: number;
+
+            /** GhostExpeditionSchedule startAt. */
+            public startAt: number;
+
+            /** GhostExpeditionSchedule endAt. */
+            public endAt: number;
+
+            /** GhostExpeditionSchedule aftereventEndAt. */
+            public aftereventEndAt: number;
+
+            /** GhostExpeditionSchedule opponentCountry. */
+            public opponentCountry: string;
+
+            /**
+             * Creates a new GhostExpeditionSchedule instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostExpeditionSchedule instance
+             */
+            public static create(properties?: wm.protobuf.IGhostExpeditionSchedule): wm.protobuf.GhostExpeditionSchedule;
+
+            /**
+             * Encodes the specified GhostExpeditionSchedule message. Does not implicitly {@link wm.protobuf.GhostExpeditionSchedule.verify|verify} messages.
+             * @param message GhostExpeditionSchedule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostExpeditionSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostExpeditionSchedule message, length delimited. Does not implicitly {@link wm.protobuf.GhostExpeditionSchedule.verify|verify} messages.
+             * @param message GhostExpeditionSchedule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostExpeditionSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostExpeditionSchedule message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostExpeditionSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostExpeditionSchedule;
+
+            /**
+             * Decodes a GhostExpeditionSchedule message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostExpeditionSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostExpeditionSchedule;
+
+            /**
+             * Verifies a GhostExpeditionSchedule message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostExpeditionSchedule message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostExpeditionSchedule
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostExpeditionSchedule;
+
+            /**
+             * Creates a plain object from a GhostExpeditionSchedule message. Also converts values to other types if specified.
+             * @param message GhostExpeditionSchedule
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostExpeditionSchedule, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostExpeditionSchedule to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostExpeditionSchedule
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostExpeditionRankingEntry. */
+        interface IGhostExpeditionRankingEntry {
+
+            /** GhostExpeditionRankingEntry rank */
+            rank?: (number|null);
+
+            /** GhostExpeditionRankingEntry score */
+            score: number;
+
+            /** GhostExpeditionRankingEntry car */
+            car: wm.protobuf.ICar;
+        }
+
+        /** Represents a GhostExpeditionRankingEntry. */
+        class GhostExpeditionRankingEntry implements IGhostExpeditionRankingEntry {
+
+            /**
+             * Constructs a new GhostExpeditionRankingEntry.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostExpeditionRankingEntry);
+
+            /** GhostExpeditionRankingEntry rank. */
+            public rank: number;
+
+            /** GhostExpeditionRankingEntry score. */
+            public score: number;
+
+            /** GhostExpeditionRankingEntry car. */
+            public car: wm.protobuf.ICar;
+
+            /**
+             * Creates a new GhostExpeditionRankingEntry instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostExpeditionRankingEntry instance
+             */
+            public static create(properties?: wm.protobuf.IGhostExpeditionRankingEntry): wm.protobuf.GhostExpeditionRankingEntry;
+
+            /**
+             * Encodes the specified GhostExpeditionRankingEntry message. Does not implicitly {@link wm.protobuf.GhostExpeditionRankingEntry.verify|verify} messages.
+             * @param message GhostExpeditionRankingEntry message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostExpeditionRankingEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostExpeditionRankingEntry message, length delimited. Does not implicitly {@link wm.protobuf.GhostExpeditionRankingEntry.verify|verify} messages.
+             * @param message GhostExpeditionRankingEntry message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostExpeditionRankingEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostExpeditionRankingEntry message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostExpeditionRankingEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostExpeditionRankingEntry;
+
+            /**
+             * Decodes a GhostExpeditionRankingEntry message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostExpeditionRankingEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostExpeditionRankingEntry;
+
+            /**
+             * Verifies a GhostExpeditionRankingEntry message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostExpeditionRankingEntry message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostExpeditionRankingEntry
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostExpeditionRankingEntry;
+
+            /**
+             * Creates a plain object from a GhostExpeditionRankingEntry message. Also converts values to other types if specified.
+             * @param message GhostExpeditionRankingEntry
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostExpeditionRankingEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostExpeditionRankingEntry to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostExpeditionRankingEntry
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a WantedCar. */
+        interface IWantedCar {
+
+            /** WantedCar ghost */
+            ghost: wm.protobuf.IGhostCar;
+
+            /** WantedCar wantedId */
+            wantedId: number;
+
+            /** WantedCar bonus */
+            bonus: number;
+
+            /** WantedCar numOfHostages */
+            numOfHostages: number;
+
+            /** WantedCar defeatedMeCount */
+            defeatedMeCount?: (number|null);
+
+            /** WantedCar hostage */
+            hostage?: (wm.protobuf.ICarEntry|null);
+        }
+
+        /** Represents a WantedCar. */
+        class WantedCar implements IWantedCar {
+
+            /**
+             * Constructs a new WantedCar.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IWantedCar);
+
+            /** WantedCar ghost. */
+            public ghost: wm.protobuf.IGhostCar;
+
+            /** WantedCar wantedId. */
+            public wantedId: number;
+
+            /** WantedCar bonus. */
+            public bonus: number;
+
+            /** WantedCar numOfHostages. */
+            public numOfHostages: number;
+
+            /** WantedCar defeatedMeCount. */
+            public defeatedMeCount: number;
+
+            /** WantedCar hostage. */
+            public hostage?: (wm.protobuf.ICarEntry|null);
+
+            /**
+             * Creates a new WantedCar instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WantedCar instance
+             */
+            public static create(properties?: wm.protobuf.IWantedCar): wm.protobuf.WantedCar;
+
+            /**
+             * Encodes the specified WantedCar message. Does not implicitly {@link wm.protobuf.WantedCar.verify|verify} messages.
+             * @param message WantedCar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IWantedCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WantedCar message, length delimited. Does not implicitly {@link wm.protobuf.WantedCar.verify|verify} messages.
+             * @param message WantedCar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IWantedCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WantedCar message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WantedCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.WantedCar;
+
+            /**
+             * Decodes a WantedCar message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WantedCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.WantedCar;
+
+            /**
+             * Verifies a WantedCar message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WantedCar message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WantedCar
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.WantedCar;
+
+            /**
+             * Creates a plain object from a WantedCar message. Also converts values to other types if specified.
+             * @param message WantedCar
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.WantedCar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WantedCar to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for WantedCar
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a CarEntry. */
+        interface ICarEntry {
+
+            /** CarEntry name */
+            name: string;
+
+            /** CarEntry level */
+            level: number;
+
+            /** CarEntry title */
+            title: string;
+
+            /** CarEntry model */
+            model: number;
+
+            /** CarEntry visualModel */
+            visualModel: number;
+
+            /** CarEntry defaultColor */
+            defaultColor: number;
+
+            /** CarEntry score */
+            score?: (number|null);
+        }
+
+        /** Represents a CarEntry. */
+        class CarEntry implements ICarEntry {
+
+            /**
+             * Constructs a new CarEntry.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ICarEntry);
+
+            /** CarEntry name. */
+            public name: string;
+
+            /** CarEntry level. */
+            public level: number;
+
+            /** CarEntry title. */
+            public title: string;
+
+            /** CarEntry model. */
+            public model: number;
+
+            /** CarEntry visualModel. */
+            public visualModel: number;
+
+            /** CarEntry defaultColor. */
+            public defaultColor: number;
+
+            /** CarEntry score. */
+            public score: number;
+
+            /**
+             * Creates a new CarEntry instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CarEntry instance
+             */
+            public static create(properties?: wm.protobuf.ICarEntry): wm.protobuf.CarEntry;
+
+            /**
+             * Encodes the specified CarEntry message. Does not implicitly {@link wm.protobuf.CarEntry.verify|verify} messages.
+             * @param message CarEntry message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ICarEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CarEntry message, length delimited. Does not implicitly {@link wm.protobuf.CarEntry.verify|verify} messages.
+             * @param message CarEntry message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ICarEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CarEntry message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CarEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.CarEntry;
+
+            /**
+             * Decodes a CarEntry message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CarEntry
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.CarEntry;
+
+            /**
+             * Verifies a CarEntry message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CarEntry message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CarEntry
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.CarEntry;
+
+            /**
+             * Creates a plain object from a CarEntry message. Also converts values to other types if specified.
+             * @param message CarEntry
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.CarEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CarEntry to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for CarEntry
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a CarTuning. */
         interface ICarTuning {
 
@@ -17901,6 +20623,9 @@ export namespace wm {
 
             /** CarTuning lastPlayedAt */
             lastPlayedAt?: (number|null);
+
+            /** CarTuning type */
+            type?: (wm.protobuf.GhostType|null);
         }
 
         /** Represents a CarTuning. */
@@ -17923,6 +20648,9 @@ export namespace wm {
 
             /** CarTuning lastPlayedAt. */
             public lastPlayedAt: number;
+
+            /** CarTuning type. */
+            public type: wm.protobuf.GhostType;
 
             /**
              * Creates a new CarTuning instance using the specified properties.
@@ -18901,9 +21629,221 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GhostExpeditionRanking. */
+        interface IGhostExpeditionRanking {
+
+            /** GhostExpeditionRanking localScore */
+            localScore: number;
+
+            /** GhostExpeditionRanking todaysMvp */
+            todaysMvp?: (wm.protobuf.IGhostExpeditionRankingEntry|null);
+
+            /** GhostExpeditionRanking localRanking */
+            localRanking?: (wm.protobuf.IGhostExpeditionRankingEntry[]|null);
+        }
+
+        /** Represents a GhostExpeditionRanking. */
+        class GhostExpeditionRanking implements IGhostExpeditionRanking {
+
+            /**
+             * Constructs a new GhostExpeditionRanking.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostExpeditionRanking);
+
+            /** GhostExpeditionRanking localScore. */
+            public localScore: number;
+
+            /** GhostExpeditionRanking todaysMvp. */
+            public todaysMvp?: (wm.protobuf.IGhostExpeditionRankingEntry|null);
+
+            /** GhostExpeditionRanking localRanking. */
+            public localRanking: wm.protobuf.IGhostExpeditionRankingEntry[];
+
+            /**
+             * Creates a new GhostExpeditionRanking instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostExpeditionRanking instance
+             */
+            public static create(properties?: wm.protobuf.IGhostExpeditionRanking): wm.protobuf.GhostExpeditionRanking;
+
+            /**
+             * Encodes the specified GhostExpeditionRanking message. Does not implicitly {@link wm.protobuf.GhostExpeditionRanking.verify|verify} messages.
+             * @param message GhostExpeditionRanking message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostExpeditionRanking, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostExpeditionRanking message, length delimited. Does not implicitly {@link wm.protobuf.GhostExpeditionRanking.verify|verify} messages.
+             * @param message GhostExpeditionRanking message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostExpeditionRanking, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostExpeditionRanking message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostExpeditionRanking
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostExpeditionRanking;
+
+            /**
+             * Decodes a GhostExpeditionRanking message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostExpeditionRanking
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostExpeditionRanking;
+
+            /**
+             * Verifies a GhostExpeditionRanking message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostExpeditionRanking message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostExpeditionRanking
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostExpeditionRanking;
+
+            /**
+             * Creates a plain object from a GhostExpeditionRanking message. Also converts values to other types if specified.
+             * @param message GhostExpeditionRanking
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostExpeditionRanking, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostExpeditionRanking to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostExpeditionRanking
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostExpeditionParticipants. */
+        interface IGhostExpeditionParticipants {
+
+            /** GhostExpeditionParticipants placeId */
+            placeId: string;
+
+            /** GhostExpeditionParticipants participantCars */
+            participantCars?: (number[]|null);
+        }
+
+        /** Represents a GhostExpeditionParticipants. */
+        class GhostExpeditionParticipants implements IGhostExpeditionParticipants {
+
+            /**
+             * Constructs a new GhostExpeditionParticipants.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostExpeditionParticipants);
+
+            /** GhostExpeditionParticipants placeId. */
+            public placeId: string;
+
+            /** GhostExpeditionParticipants participantCars. */
+            public participantCars: number[];
+
+            /**
+             * Creates a new GhostExpeditionParticipants instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostExpeditionParticipants instance
+             */
+            public static create(properties?: wm.protobuf.IGhostExpeditionParticipants): wm.protobuf.GhostExpeditionParticipants;
+
+            /**
+             * Encodes the specified GhostExpeditionParticipants message. Does not implicitly {@link wm.protobuf.GhostExpeditionParticipants.verify|verify} messages.
+             * @param message GhostExpeditionParticipants message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostExpeditionParticipants, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostExpeditionParticipants message, length delimited. Does not implicitly {@link wm.protobuf.GhostExpeditionParticipants.verify|verify} messages.
+             * @param message GhostExpeditionParticipants message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostExpeditionParticipants, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostExpeditionParticipants message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostExpeditionParticipants
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostExpeditionParticipants;
+
+            /**
+             * Decodes a GhostExpeditionParticipants message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostExpeditionParticipants
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostExpeditionParticipants;
+
+            /**
+             * Verifies a GhostExpeditionParticipants message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostExpeditionParticipants message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostExpeditionParticipants
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostExpeditionParticipants;
+
+            /**
+             * Creates a plain object from a GhostExpeditionParticipants message. Also converts values to other types if specified.
+             * @param message GhostExpeditionParticipants
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostExpeditionParticipants, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostExpeditionParticipants to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostExpeditionParticipants
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** SystemConstant enum. */
         enum SystemConstant {
-            PROTOBUF_MESSAGE_REVISION = 8053
+            PROTOBUF_MESSAGE_REVISION = 10029
         }
 
         /** ErrorCode enum. */
@@ -18970,6 +21910,7 @@ export namespace wm {
             CAT_CAR_TICKET = 201,
             CAT_CONSUMPTION_ITEM = 202,
             CAT_CAR_TICKET_FREE = 203,
+            CAT_CAR_TITLE = 400,
             CAT_AERO_FULLSET = 300,
             CAT_AERO_LIMITED = 301
         }
@@ -18980,7 +21921,7 @@ export namespace wm {
             TUTORIAL_ID_TIME_ATTACK = 1,
             TUTORIAL_ID_GHOST = 2,
             TUTORIAL_ID_GHOST_CHALLENGE = 3,
-            TUTORIAL_ID_GHOST_LEVEL = 4,
+            TUTORIAL_ID_UNUSED_4 = 4,
             TUTORIAL_ID_UNUSED_5 = 5,
             TUTORIAL_ID_GHOST_SEARCH = 6,
             TUTORIAL_ID_GHOST_COMPETITION = 7,
@@ -19008,10 +21949,26 @@ export namespace wm {
             TUTORIAL_ID_UNUSED_29 = 29,
             TUTORIAL_ID_UNUSED_30 = 30,
             TUTORIAL_ID_DRESS_UP = 31,
-            TUTORIAL_ID_MULTI_GHOST = 32,
+            TUTORIAL_ID_UNUSED_32 = 32,
             TUTORIAL_ID_STORY_NEW_FEATURE = 33,
             TUTORIAL_ID_GHOST_NEW_FEATURE = 34,
-            TUTORIAL_ID_GHOST_REGION_MAP = 35
+            TUTORIAL_ID_UNUSED_35 = 35,
+            TUTORIAL_ID_GHOST_EXPEDITION_NEW = 36,
+            TUTORIAL_ID_GHOST_EXPEDITION_WANTED = 37,
+            TUTORIAL_ID_GHOST_EXPEDITION_WANTED2 = 38,
+            TUTORIAL_ID_GHOST_EXPEDITION_REWARD = 39,
+            TUTORIAL_ID_MULTI_GHOST_VS_2 = 40,
+            TUTORIAL_ID_MULTI_GHOST_VS_3 = 41,
+            TUTORIAL_ID_GHOST_SELECT_BY_OTHER_PLACE = 42,
+            TUTORIAL_ID_GHOST_SELECT_BY_MANUFACTURER = 43,
+            TUTORIAL_ID_GHOST_SELECT_BY_OTHER_MANUFACTURER = 44,
+            TUTORIAL_ID_GHOST_SELECT_BY_PLAYED = 45,
+            TUTORIAL_ID_GHOST_HIGHWAY_NEW = 46,
+            TUTORIAL_ID_GHOST_HIGHWAY_STATION = 47,
+            TUTORIAL_ID_GHOST_HIGHWAY_BOSS = 48,
+            TUTORIAL_ID_GHOST_TROPHY = 49,
+            TUTORIAL_ID_GHOST_SELECT = 50,
+            TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE = 51
         }
 
         /** GameMode enum. */
@@ -19027,7 +21984,9 @@ export namespace wm {
         enum GhostType {
             GHOST_NORMAL = 1,
             GHOST_PINCH_RUNNER = 2,
-            GHOST_DEFAULT = 3
+            GHOST_DEFAULT = 3,
+            GHOST_REGION = 4,
+            GHOST_REGION_PINCH_RUNNER = 5
         }
 
         /** GhostSelectionMethod enum. */
@@ -19043,7 +22002,20 @@ export namespace wm {
             GHOST_APPOINTMENT = 9,
             GHOST_DEFAULT_OPPONENT = 10,
             GHOST_COMPETITION = 11,
-            GHOST_SELECT_FROM_BOOKMARKS = 12
+            GHOST_SELECT_FROM_BOOKMARKS = 12,
+            GHOST_EXPEDITION = 13,
+            GHOST_SELECT_BY_PLACE = 14,
+            GHOST_SELECT_BY_OTHER_PLACE = 15,
+            GHOST_SELECT_BY_MANUFACTURER = 16,
+            GHOST_SELECT_BY_OTHER_MANUFACTURER = 17,
+            GHOST_SELECT_BY_PLAYED = 18,
+            GHOST_UNUSED_19 = 19,
+            GHOST_SELECT_BY_REGION_MANUFACTURER = 20,
+            GHOST_UNUSED_21 = 21,
+            GHOST_SELECT_BY_REGION_PLAYED = 22,
+            GHOST_SELECT_BY_REGION_STATION = 23,
+            GHOST_SELECT_BY_REGION_BOSS = 24,
+            GHOST_SELECT_BY_REGION_PLACE = 25
         }
 
         /** GhostRateType enum. */
@@ -19082,7 +22054,8 @@ export namespace wm {
         enum FileType {
             FILE_PROMOTION_ANNOUNCEMENT = 1,
             FILE_FEATURE_ANNOUNCEMENT = 4,
-            FILE_SPAPP_ANNOUNCEMENT = 6
+            FILE_SPAPP_ANNOUNCEMENT = 6,
+            FILE_TRIAL_ANNOUNCEMENT = 7
         }
 
         /** GhostCompetitionParticipantState enum. */
@@ -19093,6 +22066,13 @@ export namespace wm {
             COMPETITION_WON = 4
         }
 
+        /** GhostExpeditionParticipantState enum. */
+        enum GhostExpeditionParticipantState {
+            EXPEDITION_NOT_PARTICIPATED = 1,
+            EXPEDITION_PARTICIPATED = 2,
+            EXPEDITION_RESULT_CONFIRMED = 3
+        }
+
         /** ScreenshotType enum. */
         enum ScreenshotType {
             SS_GHOST_BATTLE = 1,
@@ -19100,7 +22080,7 @@ export namespace wm {
             SS_TERMINAL = 3,
             SS_ACQUIRING_VERSUS_STAR = 4,
             SS_ACQUIRING_AURA_MOTIF = 5,
-            SS_GHOST_REGION_MAP = 6,
+            SS_GHOST_TROPHY = 6,
             SS_ACQUIRING_CROWN = 7,
             SS_GHOST_COMPETITION_RESULT = 8,
             SS_TIME_ATTACK_RESULT = 9,
@@ -19137,6 +22117,19 @@ export namespace wm {
             SPAPP_UNREGISTERED = 0,
             SPAPP_KTID = 1,
             SPAPP_BNID = 2
+        }
+
+        /** MethodType enum. */
+        enum MethodType {
+            MT_LOAD_CAR = 1,
+            MT_LOAD_GHOST_DRIVE_DATA = 2,
+            MT_LOAD_USER = 3,
+            MT_REGISTER_GHOST_TRAIL = 4,
+            MT_REGISTER_SYSTEM_INFO = 5,
+            MT_SAVE_CHARGE = 6,
+            MT_SAVE_GAME_RESULT = 7,
+            MT_SAVE_SCREENSHOT = 8,
+            RS_GHOST_TRAIL = 9
         }
     }
 }

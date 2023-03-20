@@ -8,8 +8,8 @@ import { Car } from "@prisma/client";
 import * as wm from "../wmmt/wm.proto";
 
 // Import Util
-import * as scratch from "./terminal/scratch";
-import * as common from "./util/common";
+import * as scratch from "../util/scratch";
+import * as common from "../util/common";
 
 
 export default class TerminalModule extends Module {
@@ -186,9 +186,7 @@ export default class TerminalModule extends Module {
 
 			// Get the query from the request
 			let query = req.query;
-			let cars: wm.wm.protobuf.Car[] = [];
-			let car;
-			let arr = [];
+			let cars;
 
 			// Check the query limit
 			let queryLimit = 10
@@ -212,23 +210,22 @@ export default class TerminalModule extends Module {
 					queryLastPlayedPlaceId = getLastPlayedPlaceId.id;
 				}
 
-				car = await prisma.car.findMany({
+				cars = await prisma.car.findMany({
+					take: queryLimit, 
 					where: {
 						lastPlayedPlaceId: queryLastPlayedPlaceId
 					},
 					include:{
 						gtWing: true,
 						lastPlayedPlace: true
-					},
-					orderBy: {
-						carId: "asc"
 					}
 				});
 			}
 			else
 			{
 				// Get all of the cars matching the query
-				car = await prisma.car.findMany({
+				cars = await prisma.car.findMany({
+					take: queryLimit, 
 					where: {
 						OR:[
 							{
@@ -247,48 +244,8 @@ export default class TerminalModule extends Module {
 					include:{
 						gtWing: true,
 						lastPlayedPlace: true
-					},
-					orderBy: {
-						carId: "asc"
 					}
 				});
-			}
-
-			if(car.length > 0)
-			{
-				if(car.length < queryLimit)
-				{
-					queryLimit = car.length;
-				}
-
-				// Choose the user's car data randomly to appear
-				while(arr.length < queryLimit)
-				{
-					// Randomize pick
-					let random: number = 1;
-
-					// Randomize it 5 times
-					for(let i=0; i<5; i++)
-					{
-						random = Math.floor(Math.random() * car.length);
-					}
-			
-					// Try randomize it again if it's 1
-					if(random === 1)
-					{
-						random = Math.floor(Math.random() * car.length);
-					}
-					
-					if(arr.indexOf(random) === -1)
-        			{
-						// Push current number to array
-						arr.push(random); 
-
-						cars.push(wm.wm.protobuf.Car.create({
-							...car[random]
-						}));
-					}
-				}
 			}
 			
 			let msg = {
@@ -678,31 +635,32 @@ export default class TerminalModule extends Module {
 								periodId: 'desc'
 							}   
 						],
-						include:{
-							car: true
-						},
-						distinct: ["carId"],
-						take: 50
 					})
 
 					numOfParticipants = ocmParticipant.length;
 					periodId = 0;
 					let ranking = 0;
 
-					if(numOfParticipants > 0)
-					{	
+					if(ocmParticipant)
+					{
 						periodId = ocmParticipant[0].periodId;
 						
 						for(let i=0; i<ocmParticipant.length; i++)
 						{
+							let cars = await prisma.car.findFirst({
+								where:{
+									carId: ocmParticipant[i].carId
+								},
+								include:{
+									gtWing: true,
+									lastPlayedPlace: true
+								}
+							});
+
 							let ocmGhostrecord = await prisma.oCMGhostBattleRecord.findFirst({
 								where:{
 									carId: ocmParticipant[0].carId,
 									competitionId: ocmEventDate!.competitionId,
-								},
-								select:{
-									playedShopName: true,
-									playedAt: true
 								}
 							});
 
@@ -718,14 +676,14 @@ export default class TerminalModule extends Module {
 									rank: i + 1,
 									result: ocmParticipant[i].result,
 									carId: ocmParticipant[i].carId,
-									name: ocmParticipant[i].car.name,
-									regionId: ocmParticipant[i].car.regionId,
-									model: ocmParticipant[i].car.model,
-									visualModel: ocmParticipant[i].car.visualModel,
-									defaultColor: ocmParticipant[i].car.defaultColor,
-									title: ocmParticipant[i].car.title,
-									level: ocmParticipant[i].car.level,
-									windowStickerString: ocmParticipant[i].car.windowStickerString,
+									name: cars!.name,
+									regionId: cars!.regionId,
+									model: cars!.model,
+									visualModel: cars!.visualModel,
+									defaultColor: cars!.defaultColor,
+									title: cars!.title,
+									level: cars!.level,
+									windowStickerString: cars!.windowStickerString,
 									playedShopName: playedShopName,
 									playedAt: ocmGhostrecord!.playedAt
 								});
@@ -738,65 +696,17 @@ export default class TerminalModule extends Module {
 								rank: i + 1,
 								result: ocmParticipant[i].result,
 								carId: ocmParticipant[i].carId,
-								name: ocmParticipant[i].car.name,
-								regionId: ocmParticipant[i].car.regionId,
-								model: ocmParticipant[i].car.model,
-								visualModel: ocmParticipant[i].car.visualModel,
-								defaultColor: ocmParticipant[i].car.defaultColor,
-								title: ocmParticipant[i].car.title,
-								level: ocmParticipant[i].car.level,
-								windowStickerString: ocmParticipant[i].car.windowStickerString,
+								name: cars!.name,
+								regionId: cars!.regionId,
+								model: cars!.model,
+								visualModel: cars!.visualModel,
+								defaultColor: cars!.defaultColor,
+								title: cars!.title,
+								level: cars!.level,
+								windowStickerString: cars!.windowStickerString,
 								playedShopName: playedShopName,
 								playedAt: ocmGhostrecord!.playedAt
 							}));
-						}
-
-						if(!(ownRecords))
-						{
-							let ocmPersonalRank = [{ result: 0, position: 0 }];
-
-							ocmPersonalRank = await prisma.$queryRaw`
-							select "result", "position" from 
-							(select *, row_number() over(order by "result" DESC) as "position" from "OCMTally" 
-							where "competitionId" = ${body.competitionId}) "OCMTally" where "carId" = ${body.carId}`;
-
-							if(ocmPersonalRank.length > 0)
-							{
-								let userCar = await prisma.car.findFirst({
-									where:{
-										carId: body.carId
-									}
-								});
-
-								let userPlayedAt = await prisma.oCMGhostBattleRecord.findFirst({
-									where:{
-										carId: body.carId,
-										competitionId: body.competitionId
-									},
-									select:{
-										playedAt: true
-									}
-								});
-
-								let myRank = Number(ocmPersonalRank[0].position);
-								let myResult = Number(ocmPersonalRank[0].result);
-
-								ownRecords = wm.wm.protobuf.LoadGhostCompetitionRankingResponse.Entry.create({
-									rank: myRank,
-									result: myResult,
-									carId: userCar!.carId,
-									name: userCar!.name,
-									regionId: userCar!.regionId,
-									model: userCar!.model,
-									visualModel: userCar!.visualModel,
-									defaultColor: userCar!.defaultColor,
-									title: userCar!.title,
-									level: userCar!.level,
-									windowStickerString: userCar!.windowStickerString,
-									playedShopName: playedShopName,
-									playedAt: userPlayedAt?.playedAt || 0
-								});
-							}
 						}
 					}
 				}
@@ -811,21 +721,27 @@ export default class TerminalModule extends Module {
 						},
 						orderBy: {
 							result: 'desc'
-						},
-						include:{
-							car: true
-						},
-						distinct: ["carId"],
+						}
 					})
 
 					numOfParticipants = ocmParticipant.length;
 					periodId = 0;
 					let ranking = 0;
 
-					if(numOfParticipants > 0)
+					if(ocmParticipant)
 					{
-						for(let i=0; i<numOfParticipants; i++)
+						for(let i=0; i<ocmParticipant.length; i++)
 						{
+							let cars = await prisma.car.findFirst({
+								where:{
+									carId: ocmParticipant[i].carId
+								},
+								include:{
+									gtWing: true,
+									lastPlayedPlace: true
+								}
+							})
+
 							if(ocmParticipant[i].carId === body.carId && ranking === 0)
 							{
 								// User car setting
@@ -833,21 +749,37 @@ export default class TerminalModule extends Module {
 									rank: i + 1,
 									result: ocmParticipant[i].result,
 									carId: ocmParticipant[i].carId,
-									name: ocmParticipant[i].car.name,
-									regionId: ocmParticipant[i].car.regionId,
-									model: ocmParticipant[i].car.model,
-									visualModel: ocmParticipant[i].car.visualModel,
-									defaultColor: ocmParticipant[i].car.defaultColor,
-									title: ocmParticipant[i].car.title,
-									level: ocmParticipant[i].car.level,
-									windowStickerString: ocmParticipant[i].car.windowStickerString,
-									playedShopName: playedShopName,
+									name: cars!.name,
+									regionId: cars!.regionId,
+									model: cars!.model,
+									visualModel: cars!.visualModel,
+									defaultColor: cars!.defaultColor,
+									title: cars!.title,
+									level: cars!.level,
+									windowStickerString: cars!.windowStickerString,
+									playedShopName: ocmParticipant[i].playedShopName,
 									playedAt: ocmParticipant[i].playedAt
 								});
 
 								ranking++;
-								break;
 							}
+
+							// Generate OCM Top Records
+							topRecords.push(wm.wm.protobuf.LoadGhostCompetitionRankingResponse.Entry.create({
+								rank: i + 1,
+								result: ocmParticipant[i].result,
+								carId: ocmParticipant[i].carId,
+								name: cars!.name,
+								regionId: cars!.regionId,
+								model: cars!.model,
+								visualModel: cars!.visualModel,
+								defaultColor: cars!.defaultColor,
+								title: cars!.title,
+								level: cars!.level,
+								windowStickerString: cars!.windowStickerString,
+								playedShopName: ocmParticipant[i].playedShopName,
+								playedAt: ocmParticipant[i].playedAt
+							}));
 						}
 					}
 				}
@@ -856,51 +788,40 @@ export default class TerminalModule extends Module {
 				{
 					console.log('Current / Previous OCM Day : OCM has Ended');
 
-					// Get Current OCM Period and All User's Record
 					let ocmParticipant = await prisma.oCMTally.findMany({
 						where:{
 							competitionId: ocmEventDate!.competitionId,
+							periodId: 999999999
 						},
-						orderBy: [
-							{
-								result: 'desc'
-							},
-							{
-								periodId: 'desc'
-							}   
-						],
-						include:{
-							car: true
-						},
-						distinct: ["carId"],
-						take: 10
+						orderBy: {
+							result: 'desc'
+						}
 					})
 
 					numOfParticipants = ocmParticipant.length;
 					periodId = 0;
 					let ranking = 0;
 
-					if(numOfParticipants > 0)
-					{	
-						periodId = ocmParticipant[0].periodId;
-						
+					if(ocmParticipant)
+					{
 						for(let i=0; i<ocmParticipant.length; i++)
 						{
+							let cars = await prisma.car.findFirst({
+								where:{
+									carId: ocmParticipant[i].carId
+								},
+								include:{
+									gtWing: true,
+									lastPlayedPlace: true
+								}
+							});
+
 							let ocmGhostrecord = await prisma.oCMGhostBattleRecord.findFirst({
 								where:{
 									carId: ocmParticipant[0].carId,
 									competitionId: ocmEventDate!.competitionId,
-								},
-								select:{
-									playedShopName: true,
-									playedAt: true
 								}
 							});
-
-							if(ocmGhostrecord?.playedShopName !== null && ocmGhostrecord?.playedShopName !== undefined)
-							{
-								playedShopName = ocmGhostrecord.playedShopName;
-							}
 
 							if(ocmParticipant[i].carId === body.carId && ranking === 0)
 							{
@@ -909,15 +830,15 @@ export default class TerminalModule extends Module {
 									rank: i + 1,
 									result: ocmParticipant[i].result,
 									carId: ocmParticipant[i].carId,
-									name: ocmParticipant[i].car.name,
-									regionId: ocmParticipant[i].car.regionId,
-									model: ocmParticipant[i].car.model,
-									visualModel: ocmParticipant[i].car.visualModel,
-									defaultColor: ocmParticipant[i].car.defaultColor,
-									title: ocmParticipant[i].car.title,
-									level: ocmParticipant[i].car.level,
-									windowStickerString: ocmParticipant[i].car.windowStickerString,
-									playedShopName: playedShopName,
+									name: cars!.name,
+									regionId: cars!.regionId,
+									model: cars!.model,
+									visualModel: cars!.visualModel,
+									defaultColor: cars!.defaultColor,
+									title: cars!.title,
+									level: cars!.level,
+									windowStickerString: cars!.windowStickerString,
+									playedShopName: ocmGhostrecord!.playedShopName,
 									playedAt: ocmGhostrecord!.playedAt
 								});
 
@@ -929,65 +850,17 @@ export default class TerminalModule extends Module {
 								rank: i + 1,
 								result: ocmParticipant[i].result,
 								carId: ocmParticipant[i].carId,
-								name: ocmParticipant[i].car.name,
-								regionId: ocmParticipant[i].car.regionId,
-								model: ocmParticipant[i].car.model,
-								visualModel: ocmParticipant[i].car.visualModel,
-								defaultColor: ocmParticipant[i].car.defaultColor,
-								title: ocmParticipant[i].car.title,
-								level: ocmParticipant[i].car.level,
-								windowStickerString: ocmParticipant[i].car.windowStickerString,
-								playedShopName: playedShopName,
+								name: cars!.name,
+								regionId: cars!.regionId,
+								model: cars!.model,
+								visualModel: cars!.visualModel,
+								defaultColor: cars!.defaultColor,
+								title: cars!.title,
+								level: cars!.level,
+								windowStickerString: cars!.windowStickerString,
+								playedShopName: ocmGhostrecord!.playedShopName,
 								playedAt: ocmGhostrecord!.playedAt
 							}));
-						}
-
-						if(!(ownRecords))
-						{
-							let ocmPersonalRank = [{ result: 0, position: 0 }];
-
-							ocmPersonalRank = await prisma.$queryRaw`
-							select "result", "position" from 
-							(select *, row_number() over(order by "result" DESC) as "position" from "OCMTally" 
-							where "competitionId" = ${body.competitionId}) "OCMTally" where "carId" = ${body.carId}`;
-
-							if(ocmPersonalRank.length > 0)
-							{
-								let userCar = await prisma.car.findFirst({
-									where:{
-										carId: body.carId
-									}
-								});
-
-								let userPlayedAt = await prisma.oCMGhostBattleRecord.findFirst({
-									where:{
-										carId: body.carId,
-										competitionId: body.competitionId
-									},
-									select:{
-										playedAt: true
-									}
-								});
-
-								let myRank = Number(ocmPersonalRank[0].position);
-								let myResult = Number(ocmPersonalRank[0].result);
-
-								ownRecords = wm.wm.protobuf.LoadGhostCompetitionRankingResponse.Entry.create({
-									rank: myRank,
-									result: myResult,
-									carId: userCar!.carId,
-									name: userCar!.name,
-									regionId: userCar!.regionId,
-									model: userCar!.model,
-									visualModel: userCar!.visualModel,
-									defaultColor: userCar!.defaultColor,
-									title: userCar!.title,
-									level: userCar!.level,
-									windowStickerString: userCar!.windowStickerString,
-									playedShopName: playedShopName,
-									playedAt: userPlayedAt?.playedAt || 0
-								});
-							}
 						}
 					}
 				}
@@ -1128,6 +1001,24 @@ export default class TerminalModule extends Module {
             // Send the response to the client
             common.sendResponse(message, res);
         });
+
+
+		app.post('/method/save_screenshot', async (req, res) => {
+
+			// Get the information from the request
+			let body = wm.wm.protobuf.SaveScreenshotRequest.decode(req.body);
+
+			// Response data
+            let msg = {
+				error: wm.wm.protobuf.ErrorCode.ERR_SUCCESS,
+			};
+
+            // Encode the response
+			let message = wm.wm.protobuf.SaveScreenshotResponse.encode(msg);
+
+			// Send the response to the client
+            common.sendResponse(message, res);
+		});
 
 
 		/*

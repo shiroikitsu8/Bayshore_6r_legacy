@@ -4,7 +4,6 @@ import { unzipSync } from "zlib";
 import { Module } from "./module";
 import iconv from "iconv-lite";
 import { Config } from "./config";
-import * as common from "./modules/util/common";
 
 // TODO: Move this into the config
 const STARTUP_URI = `https://${Config.getConfig().serverIp || "localhost"}:9002`;
@@ -72,11 +71,11 @@ export default class AllnetModule extends Module {
             const adjusted = now;
 
             let shopName = Config.getConfig().shopName;
-            let shopNick = Config.getConfig().shopName;
+            let shopNick = Config.getConfig().shopNickname;
             let regionName = Config.getConfig().regionName;
             let placeId = Config.getConfig().placeId;
             let country = Config.getConfig().country;
-            let regionId = common.sanitizeInputNotZero(Number(Config.getConfig().regionId)) || 1;
+            let regionId = Config.getConfig().regionId;
 
             // TODO: Implement board authentication here.
         

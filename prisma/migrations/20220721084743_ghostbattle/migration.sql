@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "Car" ALTER COLUMN "stLoseBits" SET DEFAULT 0;
