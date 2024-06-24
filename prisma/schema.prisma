@@ -119,6 +119,7 @@ model Car {
   rgStamp            Int     @default(1)
   rgAcquireAllCrowns Boolean @default(false)
   rgRegionMapScore   Int[]
+  rgRegions          Int[]
   stampSheetCount    Int     @default(0)
   stampSheet         Int[]
 

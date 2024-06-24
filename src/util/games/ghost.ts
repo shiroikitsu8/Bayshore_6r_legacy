@@ -109,6 +109,7 @@ export async function saveGhostBattleResult(body: wm.protobuf.SaveGameResultRequ
                 stampSheet: stampSheet,
                 stampSheetCount: common.sanitizeInputNotZero(ghostResult.stampSheetCount),
                 rgTrophy: common.sanitizeInputNotZero(ghostResult.rgTrophy),
+                rgRegions: []
             }
 
             // Count total win based on region map score
@@ -125,6 +126,24 @@ export async function saveGhostBattleResult(body: wm.protobuf.SaveGameResultRequ
                 // Set the data 
                 dataGhost.rgWinCount = winCounter;
                 dataGhost.rgScore = winCounter;
+            }
+
+            let ghostResults = common.sanitizeInput(ghostResult)
+            let rgRegionsScore = await opponentsRegion(ghostResults);
+            let rgRegions: number[] = car.rgRegions || [];
+
+            if(rgRegions.length !== (dataGhost.rgWinCount % 100) - rgRegionsScore.length)
+            {
+                rgRegions = new Array((dataGhost.rgWinCount % 100) - rgRegionsScore.length - rgRegions.length).fill(18)
+            }
+
+            let mergedRegion = [...rgRegions, ...rgRegionsScore];
+
+            // More than 100
+            if(mergedRegion.length > 100)
+            {
+                const excess = mergedRegion.length - 100;
+                mergedRegion = mergedRegion.slice(-excess);
             }
         }
 
@@ -744,4 +763,29 @@ export async function saveGhostBattleResult(body: wm.protobuf.SaveGameResultRequ
 
     // Return the value to 'BASE_PATH/src/modules/game.ts'
     return { ghostModePlay, updateNewTrail, OCMModePlay }
-} 
+}
+
+
+// Opponent Region
+async function opponentsRegion(ghostResults: wm.protobuf.SaveGameResultRequest.GhostBattleResult)
+{
+    let regionIdArray = [];
+    for(const ghostResult of ghostResults.opponents)
+    {
+        let getRegionId = await prisma.car.findFirst({
+            where:{
+                carId: ghostResult.carId
+            },
+            select:{
+                regionId: true
+            }
+        });
+
+        if(getRegionId)
+        {
+            regionIdArray.push(getRegionId.regionId);
+        }
+    }
+
+    return regionIdArray;
+}
